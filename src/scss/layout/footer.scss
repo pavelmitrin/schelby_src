@@ -1,3 +1,8 @@
+@media (min-width:1200px) {
+	.footer {
+		padding-left: 50px;
+	}
+}
 .footer .contacts {
 	padding: 75px 0 15px;
 	background-color: #111111;
@@ -16,7 +21,9 @@
 }
 
 .footer .tel {
-	color: $light;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-image: linear-gradient(90deg, rgba(56,176,138,1) 0%, rgba(73,55,116,1) 100%);
 }
 
 .footer .mail {
@@ -93,6 +100,7 @@
 .footer .footer-links__sending-about {
 	font-size: 12px;
 	margin-bottom: 20px;
+	color: $white;
 }
 
 .footer .footer-links__media {

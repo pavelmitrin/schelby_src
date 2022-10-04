@@ -1,6 +1,11 @@
 .main {
 	flex: 1 0 100%;
 }
+@media (min-width:1200px) {
+	.main {
+		padding-left: 50px;
+	}
+}
 // ---------------------Вне блоков---------------------
 
 .buttons {
@@ -19,17 +24,28 @@
 
 a.btn_1 {
 	width: auto;
-	color: $secondcolor;
-	background-color: $light;
+	color: $black;
+	background-color: $green;
 	display: inline-block;
+}
+@media (min-width: 768px) {
+	a.btn_1 {
+		width: 60%;
+	}
 }
 
 a.btn_2 {
 	width: auto;
-	border: 2px solid $light;
-	color: $primalcolor;
+	border: 2px solid $pirple;
+	color: #fff;
+	background-color: $pirple;
 	display: inline-block;
 	position: relative;
+}
+@media (min-width: 768px) {
+	a.btn_2 {
+		width: 80%;
+	}
 }
 
 .title {
@@ -94,6 +110,12 @@ a.btn_2 {
 	min-height: 350px;
 	width: auto;
 }
+@media (min-width: 576px) {
+	.head h1 {
+		font-size: 42px;
+		height: auto;
+	}
+}
 
 .head h1 span {
 	color: $white;
@@ -104,10 +126,15 @@ a.btn_2 {
 	flex-direction: column;
 	margin-top: 60px;
 }
-
-.head a.btn_2 {
-	color: $light;
+@media (min-width:768px) {
+	.head .buttons {
+		flex-direction: row;
+	}
 }
+
+/* .head a.btn_2 {
+	color: $light;
+} */
 
 // ---------------------/head---------------------
 
@@ -157,7 +184,12 @@ a.btn_2 {
 	color: $light;
 	opacity: 0.6;
 }
-
+/* .green {
+	color: $green;
+}
+.pirple {
+	color: $pirple;
+} */
 // ---------------------/reasons---------------------
 
 // ---------------------carousel---------------------
@@ -199,6 +231,12 @@ a.btn_2 {
 	width: 70%;
 	z-index: 3;
 }
+@media (min-width:768px) {
+	.carousel .slider-text {
+		top: 25%;
+		font-size: 48px;
+	}
+}
 
  /* pagination */
 
@@ -227,9 +265,15 @@ a.btn_2 {
 	width: 30px;
 	height: 30px;
 	border-radius: 50%;
-	background-color: $light;
+	/* background-color: $light; */
 	text-align: center;
 	justify-content: center;
+}
+.carousel .swiper .swiper-button-prev {
+	background-color: $green;
+}
+.carousel .swiper .swiper-button-next {
+	background-color: $pirple;
 }
 
 .carousel .swiper .swiper-button-prev::after,
@@ -261,6 +305,11 @@ a.btn_2 {
 	font-size: 20px;
 	margin-bottom: 60px;
 }
+@media (min-width:1000px) {
+	.calculation a.btn_2 {
+		width: auto;
+	}
+}
 
 .calculation img {
 	width: 100%;
@@ -268,6 +317,12 @@ a.btn_2 {
 	object-position: center;
 	margin-top: 40px;
 }
+@media (min-width:768px) {
+	.calculation img {
+		margin-top: 0;
+	}
+}
+
 
 // ---------------------/calculation---------------------
 
@@ -287,12 +342,28 @@ a.btn_2 {
 	grid-template-columns: 1fr;
 	gap: 15px;
 }
+@media (min-width:768px) {
+	.shelby__wrapper {
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: repeat(3, minmax(350px, 1fr));
+	}
+}
+@media (min-width:992px) {
+	.shelby__wrapper {
+		grid-template: repeat(3, 1fr)/repeat(3, 1fr);
+	}
+}
 
 .shelby__card {
 	display: flex;
 	flex-direction: column;
 	justify-content: end;
 	overflow: hidden;
+}
+@media (min-width:768px) {
+	.shelby__card {
+		min-height: auto;
+	}
 }
 
 .shelby__card:hover > .scales {
@@ -305,6 +376,18 @@ a.btn_2 {
 	padding: 30px;
 	min-height: 350px;
 }
+@media (min-width: 768px) and (max-width: 992px) {
+	.card:last-child {
+		grid-column: 1/2;
+		grid-row: 2/3;
+	}
+
+	#card_3 {
+		grid-row: 3/4;
+		grid-column-start: span 2;
+	}
+}
+
 
 .card__img {
 	position: relative;
@@ -350,6 +433,21 @@ a.btn_2 {
 	opacity: 0.6;
 	z-index: 2;
 }
+.shelby__card.card.сar-2 {
+	background-color: $pirple;
+	color: $white;
+}
+@media (min-width:992px) {
+	#card_1 {
+		grid-row-end: span 2;
+	}
+	#card_2 {
+		grid-row-end: span 3;
+	}
+	#card_3 {
+		grid-row-end: span 2;
+	}
+}
 
 // ---------------------/shelby---------------------
 
@@ -371,6 +469,12 @@ a.btn_2 {
 	gap: 30px;
 	justify-content: center;
 }
+@media (min-width: 992px) {
+	.news__articles {
+		margin: 0 40px;
+		grid-template: repeat(2, minmax(300px, 1fr))/repeat(3, minmax(200px, 1fr));
+	}
+}
 
 .news__article {
 	position: relative;
@@ -380,6 +484,11 @@ a.btn_2 {
 	padding: 40px;
 	border-radius: 15px;
 	overflow: hidden;
+}
+@media (min-width: 992px) {
+	.news__article {
+		padding: 30px;
+	}
 }
 
 .news__article:hover > .scales {
@@ -430,6 +539,14 @@ a.btn_2 {
 	top: 40px;
 	right: 20px;
 }
+@media (min-width:992px) {
+	.svg-arrow-dims {
+		width: 20px;
+		height: 24px;
+		top: 30px;
+		right: 15px;
+	}
+}
 
 .svg-arrow-dims img {
 	width: 100%;
@@ -460,6 +577,11 @@ a.btn_2 {
 	display: flex;
 	flex-direction: column;
 }
+@media (min-width:992px) {
+	.steps {
+		flex-direction: row;
+	}
+}
 
 .step {
 	display: flex;
@@ -467,10 +589,33 @@ a.btn_2 {
 	padding-bottom: 40px;
 	position: relative;
 }
+@media (min-width:992px) {
+	.step {
+		flex-direction: column;
+		row-gap: 20px;
+		padding-right: 20px;
+	}
+	.step::after {
+		content: "";
+		width: 100%;
+		height: 100%;
+		top: 18px;
+		left: 0;
+		border-top: 2px solid $green;
+		position: absolute;
+	}
+	.step:last-child {
+		padding-right: 0;
+	}
+	.step:last-child:after {
+		display: none;
+	}
+
+}
 
 .step__number {
 	box-sizing: content-box;
-	background-color: $light;
+	background-color: $pirple;
 	border-radius: 50%;
 	overflow: hidden;
 	display: flex;
@@ -479,7 +624,8 @@ a.btn_2 {
 	min-width: 35px;
 	min-height: 35px;
 	align-self: flex-start;
-	z-index: 2;
+	z-index: 5;
+	color: $white;
 }
 
 .step__number::after {
@@ -487,13 +633,23 @@ a.btn_2 {
 	position: absolute;
 	width: 2px;
 	height: 100%;
-	background-color: $light;
+	background-color: $green;
 	z-index: 1;
 	top: 0;
+}
+@media (min-width:992px) {
+	.step__number::after {
+		display: none;
+	}
 }
 
 .step:last-child .step__number:after {
 	height: 0;
+}
+@media (min-width:992px) {
+	.step:last-child {
+		padding-right: 0;
+	}
 }
 
 .step__number span {
@@ -504,6 +660,11 @@ a.btn_2 {
 
 .step__content {
 	margin-left: 20px;
+}
+@media (min-width:992px) {
+	.step__content {
+		margin-left: 0px;
+	}
 }
 
 .scheme__title {

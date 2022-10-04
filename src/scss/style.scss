@@ -10,6 +10,7 @@ body {
 	font-family: $fontFamily, sans-serif;
 	font-weight: 300;
 	scrollbar-width: none;
+	/* background-color: $pirple; */
 }
 body::-webkit-scrollbar {
 	display: none;
@@ -35,4 +36,4 @@ body._lock {
 @import "layout/header";
 @import "layout/main";
 @import "layout/footer";
-@import "media/quires";
+// @import "media/quires";
