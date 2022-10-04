@@ -1,0 +1,122 @@
+.footer .contacts {
+	padding: 75px 0 15px;
+	background-color: #111111;
+}
+
+.footer .contacts a {
+	display: block;
+	font-size: 40px;
+	font-weight: 700;
+	line-height: 1.23;
+}
+@media (min-width: 576px) {
+	.footer .contacts a {
+		font-size: 52px;
+	}
+}
+
+.footer .tel {
+	color: $light;
+}
+
+.footer .mail {
+	color: $white;
+}
+
+.footer .contacts p {
+	margin-top: 40px;
+	font-size: 20px;
+	color: $white;
+	line-height: 1.45;
+}
+
+.footer .footer-links {
+	background-color: #111111;
+	padding: 75px 0 30px;
+	min-height: 100vh;
+}
+
+.footer .footer-links__row .footer-links__link:last-child {
+	padding-bottom: 40px;
+}
+
+.footer .footer-links__title {
+	color: $light;
+	font-size: 16px;
+	line-height: 1.35;
+	font-weight: 700;
+	margin-bottom: 20px;
+	text-transform: uppercase;
+}
+
+.footer .footer-links__link {
+	display: block;
+	padding: 0 0 10px;
+	color: $white;
+	font-size: 12px;
+}
+
+.footer .footer-links__link-active {
+	color: $light;
+	text-decoration: underline;
+	font-weight: 700;
+}
+
+.footer .footer-links__sending {
+	margin-bottom: 20px;
+}
+
+.footer .sending {
+	display: flex;
+	justify-content: space-between;
+}
+
+.footer .sending input {
+	width: 80%;
+	height: 40px;
+	padding: 0 10px;
+	color: $black;
+}
+
+.footer .sending button {
+	margin-left: 15px;
+	width: 40px;
+	height: 40px;
+	background-color: $light;
+}
+
+.footer .sending button img {
+	width: 100%;
+	object-position: center;
+}
+
+.footer .footer-links__sending-about {
+	font-size: 12px;
+	margin-bottom: 20px;
+}
+
+.footer .footer-links__media {
+	display: flex;
+	justify-content: space-between;
+}
+
+.footer .footer-links__media div {
+	flex: 0 0 25%;
+}
+
+.footer .footer__media-icons {
+	width: 20px;
+	height: 20px;
+	object-position: center;
+}
+
+.footer .footer__copy {
+	margin-top: 20px;
+}
+
+.footer .footer__copy p {
+	color: $secondcolor;
+	font-size: 12px;
+	line-height: 1.55;
+	font-weight: 300;
+}

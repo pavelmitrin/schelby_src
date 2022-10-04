@@ -1,0 +1,57 @@
+{
+	"name": "start",
+	"version": "1.0.0",
+	"description": "",
+	"main": "gulpfile.js",
+	"type": "module",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"dev": "gulp",
+		"build": "gulp build --build",
+		"zip": "gulp deployZIP --build",
+		"deploy": "gulp deployFTP --build",
+		"svgSprive": "gulp svgSprive"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"bootstrap": "^5.1.3",
+		"gulp": "latest",
+		"gulp-cli": "^2.3.0",
+		"gulp-svg-sprite": "^1.5.0",
+		"swiper": "latest"
+	},
+	"devDependencies": {
+		"browser-sync": "latest",
+		"del": "latest",
+		"gulp-autoprefixer": "latest",
+		"gulp-clean-css": "latest",
+		"gulp-file-include": "latest",
+		"gulp-fonter": "latest",
+		"gulp-group-css-media-queries": "latest",
+		"gulp-if": "latest",
+		"gulp-imagemin": "latest",
+		"gulp-newer": "latest",
+		"gulp-notify": "latest",
+		"gulp-plumber": "latest",
+		"gulp-rename": "latest",
+		"gulp-replace": "latest",
+		"gulp-sass": "latest",
+		"gulp-ttf2woff2": "latest",
+		"gulp-uglify": "latest",
+		"gulp-util": "latest",
+		"gulp-version-number": "latest",
+		"gulp-webp": "latest",
+		"gulp-webp-html-nosvg": "latest",
+		"gulp-webpcss": "latest",
+		"gulp-zip": "latest",
+		"notify-send": "latest",
+		"sass": "latest",
+		"vinyl-ftp": "latest",
+		"webp-converter": "^2.2.3"
+	},
+	"browserslist": [
+		"last 2 version",
+		"not dead"
+	]
+}
