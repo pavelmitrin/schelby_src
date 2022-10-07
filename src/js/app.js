@@ -62,9 +62,42 @@ function changeModalBody() {
 		modalStep = document.querySelector('.modal__step'),
 		modalProgress = document.querySelector('.modal__progressbar-progress'),
 		modalBodes = document.querySelectorAll('.modal__body');
+	let step = 1;
+
+
+
+	console.log(modalBodes[step - 1]);
 
 	modalNext.addEventListener('click', () => {
-		modalStep.textContent += 1;
+		if (step < modalBodes.length) {
+			step++;
+			console.log(step);
+			modalStep.textContent = step;
+			modalProgress.style.width = `${(step - 1) * 33.333}%`
+			modalBodes.forEach((el) => {
+				el.classList.remove('active');
+			})
+			modalBodes[step - 1].classList.add('active');
+		} else if (step = modalBodes.length) {
+			modalProgress.style.width = `${step * 33.333}%`
+		}
 	})
+
+
+	modalBack.addEventListener('click', () => {
+		if (step <= modalBodes.length && step >= 1) {
+			step--;
+			console.log(step);
+			modalStep.textContent = step;
+			modalProgress.style.width = `${(step - 1) * 33.333}%`
+			modalBodes.forEach((el) => {
+				el.classList.remove('active');
+			})
+			modalBodes[step - 1].classList.add('act ][lkive');
+		} else if (step < 0) {
+			modalProgress.style.width = `${step * 33.333}%`
+		}
+	})
+
 }
 changeModalBody();
