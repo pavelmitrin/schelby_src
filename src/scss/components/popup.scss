@@ -19,7 +19,7 @@
 .modal__dialog {
 	min-height: 100%;
 	width: 100%;
-	display: grid;
+	display: grid; 
 	justify-content: center;
 	align-items: center;
 	padding: 50px 10px;
@@ -188,8 +188,24 @@
 	flex: 0 1 50%;
 	padding: 10px;
 	max-width: 210px;
+	position: relative;
 }
 .popup {
+}
+.popup__object {
+	appearance: none;
+	width: 0;
+	height: 0;
+	position: absolute;
+}
+input.popup__object:checked {
+	background-color: $pirple;
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
 }
 .popup__img {
 	max-width: 100%;
