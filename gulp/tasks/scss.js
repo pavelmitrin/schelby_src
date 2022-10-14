@@ -48,7 +48,7 @@ export const scss = () => {
 			)
 		)
 		// Расскоментировать, если нужен не сжатый файл стилей
-		//.pipe(app.gulp.dest(app.path.build.css))
+		// .pipe(app.gulp.dest(app.path.build.css))
 		.pipe(
 			app.plugins.if(
 				app.isBuild,

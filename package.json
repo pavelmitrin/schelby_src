@@ -45,6 +45,7 @@
 		"gulp-webp-html-nosvg": "latest",
 		"gulp-webpcss": "latest",
 		"gulp-zip": "latest",
+		"jquery.maskedinput": "^1.4.1",
 		"notify-send": "latest",
 		"sass": "latest",
 		"vinyl-ftp": "latest",

@@ -1,0 +1,29 @@
+.breadcrumb {
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom:  1rem;
+	list-style: none;
+
+}
+.breadcrumb-item {
+	padding-left: 0.5rem;
+	font-size: 12px;
+}
+@media (min-width:1000px) {
+	.breadcrumb-item {
+		font-size: 16px;
+	}
+}
+.breadcrumb-item:first-child:before {
+	display: none;
+}
+.breadcrumb-item::before {
+	content: '/';
+	float: left;
+	padding-right: 0.5rem;
+	color: #6c757d;
+}
+.active {
+	color: #6c757d;
+	font-weight: 400;
+}

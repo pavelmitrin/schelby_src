@@ -26,17 +26,6 @@ let options = { strings: ["", "когда прогулка в парке дей�
 
 /* Input range */
 
-/* function rangeSlider(value) {
-	let min = +document.querySelector('.scrollmar__min').textContent;
-	let max = +document.querySelector('.scrollbar__max').textContent;
-	document.querySelector(".scrollbar__value").value = ((max - min) * value) / 100 + min;
-	if (value < 50) {
-		document.querySelector('.scrollbar__value').style.left = `calc(${value}% - 0px)`;
-	} else {
-		document.querySelector('.scrollbar__value').style.left = `calc(${value}% - 0px)`;
-	}
-} */
-
 function rangeSlider(slider) {
 	let popup = slider.closest('.modal__range'),
 		scrollbarSlider = popup.querySelector('.scrollbar__slider'),
@@ -56,48 +45,7 @@ function rangeSlider(slider) {
 }
 
 
-function changeModalBody() {
-	let modalBack = document.querySelector('.modal__prev'),
-		modalNext = document.querySelector('.modal__next'),
-		modalStep = document.querySelector('.modal__step'),
-		modalProgress = document.querySelector('.modal__progressbar-progress'),
-		modalBodes = document.querySelectorAll('.modal__body');
-	let step = 1;
 
-
-
-	console.log(modalBodes[step - 1]);
-
-	modalNext.addEventListener('click', () => {
-		if (step < modalBodes.length) {
-			step++;
-			console.log(step);
-			modalStep.textContent = step;
-			modalProgress.style.width = `${(step - 1) * 33.333}%`
-			modalBodes.forEach((el) => {
-				el.classList.remove('active');
-			})
-			modalBodes[step - 1].classList.add('active');
-		} else if (step = modalBodes.length) {
-			modalProgress.style.width = `${step * 33.333}%`
-		}
-	})
-
-
-	modalBack.addEventListener('click', () => {
-		if (step <= modalBodes.length && step >= 1) {
-			step--;
-			console.log(step);
-			modalStep.textContent = step;
-			modalProgress.style.width = `${(step - 1) * 33.333}%`
-			modalBodes.forEach((el) => {
-				el.classList.remove('active');
-			})
-			modalBodes[step - 1].classList.add('act ][lkive');
-		} else if (step < 0) {
-			modalProgress.style.width = `${step * 33.333}%`
-		}
-	})
-
-}
-changeModalBody();
+jQuery(function ($) {
+	$("#main-modal__body-tel").mask("+7 (999) 999-99-99"), { autoclear: false };
+});

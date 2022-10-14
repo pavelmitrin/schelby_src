@@ -38,6 +38,7 @@ function popupOpen(curentPopup) {
 			bodyLock();
 		}
 		curentPopup.classList.add('open');
+		changeModalBody();
 		curentPopup.addEventListener('click', function (e) {
 			if (!e.target.closest('.modal__content')) {
 				popupClose(e.target.closest('.modal'));
@@ -111,3 +112,68 @@ document.addEventListener('keydown', function (e) {
 			Element.prototype.msMatchesSelector;
 	}
 })();
+
+
+
+
+
+function changeModalBody() {
+	let modalBack = document.querySelector('.modal__prev'),
+		modalNext = document.querySelector('.modal__next'),
+		modalFormSubmit = document.querySelector('.modal__form-submit');
+	modalStep = document.querySelector('.modal__step'),
+		modalProgress = document.querySelector('.modal__progressbar-progress'),
+		modalBodes = document.querySelectorAll('.modal__body');
+	let step = 1;
+
+
+	modalNext.addEventListener('click', () => {
+		if (step < modalBodes.length) {
+			step++;
+			if (step == 4) {
+				modalProgress.style.width = `${(step - 1) * 33.333}%`;
+				modalBodes.forEach((el) => {
+					el.classList.remove('active');
+				});
+				modalBodes[step - 1].classList.add('active');
+				modalFormSubmit.classList.add('active');
+				modalNext.classList.add('hidden');
+				document.querySelector('.modal__last-text').classList.add('active');
+				document.querySelector('.modal__title').classList.add('hidden');
+				document.querySelector('.modal__steps').classList.add('hidden');
+			} else {
+				modalStep.textContent = step;
+				modalProgress.style.width = `${(step - 1) * 33.333}%`;
+				modalBodes.forEach((el) => {
+					el.classList.remove('active');
+				})
+				modalBodes[step - 1].classList.add('active');
+			}
+		} else if (step = modalBodes.length) {
+			modalProgress.style.width = `${step * 33.333}%`
+		}
+	})
+
+
+	modalBack.addEventListener('click', () => {
+		if (step <= modalBodes.length && step > 1) {
+			step--;
+			modalStep.textContent = step;
+			modalProgress.style.width = `${(step - 1) * 33.333}%`;
+			modalBodes.forEach((el) => {
+				el.classList.remove('active');
+			})
+			modalBodes[step - 1].classList.add('active');
+		} else if (step < 0) {
+			modalProgress.style.width = `${step * 33.333}%`
+		}
+		if (step < 4) {
+			modalFormSubmit.classList.remove('active');
+			modalNext.classList.remove('hidden');
+			document.querySelector('.modal__title').classList.remove('hidden');
+			document.querySelector('.modal__steps').classList.remove('hidden');
+			document.querySelector('.modal__last-text').classList.remove('active');
+		}
+	})
+
+}
