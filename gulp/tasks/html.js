@@ -12,9 +12,18 @@ export const html = () => {
 		)
 		.pipe(fileinclude())
 		.pipe(app.plugins.replace(/@img\//g, 'img/'))
-		.pipe(app.plugins.replace(".jpg", '.webp'))
-		.pipe(app.plugins.replace(".jpeg", '.webp'))
-		.pipe(app.plugins.replace(".png", '.webp'))
+		.pipe(app.plugins.if(
+			app.isBuild,
+			app.plugins.replace(".jpg", '.webp'))
+		)
+		.pipe(app.plugins.if(
+			app.isBuild,
+			app.plugins.replace(".jpeg", '.webp'))
+		)
+		.pipe(app.plugins.if(
+			app.isBuild,
+			app.plugins.replace(".png", '.webp'))
+		)
 
 		/* .pipe(
 			app.plugins.if(

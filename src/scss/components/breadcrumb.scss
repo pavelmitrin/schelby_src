@@ -3,6 +3,7 @@
 	flex-wrap: wrap;
 	margin-bottom:  1rem;
 	list-style: none;
+	padding: 20px 0;
 
 }
 .breadcrumb-item {
@@ -14,6 +15,12 @@
 		font-size: 16px;
 	}
 }
+.breadcrumb-item a {
+	color: $black;
+}
+.breadcrumb-item a:hover {
+	opacity: .5;
+}
 .breadcrumb-item:first-child:before {
 	display: none;
 }
@@ -23,7 +30,7 @@
 	padding-right: 0.5rem;
 	color: #6c757d;
 }
-.active {
-	color: #6c757d;
+.breadcrumb-item.active {
+	color: $light; //#6c757d
 	font-weight: 400;
 }

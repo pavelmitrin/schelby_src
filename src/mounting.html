@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('html/head.html', {
+"title": "Монтаж и установка",
+"style": "mounting"
+})
+
+<body>
+	<div class="wrapper">
+		@@include('html/header.html', {})
+		<main class="main">
+			<section class="preview">
+				<div class="container">
+					<h2 class="preview__title">Монтаж и установка</h2>
+				</div>
+				<div class="preview__bg"><img src="@img/delivery/preview.jpg" alt=""></div>
+			</section>
+
+			@@include('html/breadcumps.html', {
+			"name": "Монтаж"
+			})
+
+			<section class="mounting">
+				<div class="container">
+					<h3 class="mounting__title">Монтаж и установка</h3>
+					<p class="mounting__subtitle">Правильный монтаж игровой площадки — гарантия того, что она будет
+						безопасной, функциональной и прослужит долгие годы. Детская площадка – это не только игровые элементы,
+						но и множество нюансов, крепежных деталей, которые требуют качественной и профессиональной установки.
+						Образцово выполненные монтажные работы – это возможность предотвратить ошибки и нарушения при
+						установке и дальнейшей эксплуатации игрового комплекса.</p>
+
+
+					<div class="mounting__types">
+						<h3 class="mounting__types-title">Наша компания предлагает следующие виды монтажа:</h3>
+						<div class="mounting__types-wrapper">
+							<div class="mounting__item">
+								<div class="mounting__image">
+									<img src="@img/mounting/key.png" alt="">
+								</div>
+								<div class="mounting__text">
+									<h4 class="mounting__text-title">Полный монтаж «под ключ»</h4>
+									<p class="mounting__text-text">Комплексная услуга по установке площадки нашими специалистами.
+										Мы работаем по всей России – наши специалисты осуществляют монтаж игрового оборудования
+										даже в самых отдаленных регионах.</p>
+								</div>
+							</div>
+
+							<div class="mounting__item">
+								<div class="mounting__image">
+									<img src="@img/mounting/boss.png" alt="">
+								</div>
+								<div class="mounting__text">
+									<h4 class="mounting__text-title">Шеф-монтаж</h4>
+									<p class="mounting__text-text">Наш специалист приедет к вам и на месте подскажет рабочим, как
+										собрать игровую площадку. Такое профессиональное консультирование гарантирует правильный
+										монтаж и предоставляет возможность устранить мелкие недостатки.</p>
+								</div>
+							</div>
+
+							<div class="mounting__item">
+								<div class="mounting__image">
+									<img src="@img/mounting/youself.png" alt="">
+								</div>
+								<div class="mounting__text">
+									<h4 class="mounting__text-title">Самостоятельная сборка и установка</h4>
+									<p class="mounting__text-text">Вы можете собрать оборудование своими силами, опираясь на
+										прилагаемый паспорт оборудования, комплектовочную ведомость и схему сборки.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+
+
+			@@include('html/repeat.html', {})
+		</main>
+		@@include('html/footer.html', {})
+	</div>
+	@@include('html/scripts.html', {})
+
+</body>
+
+</html>
