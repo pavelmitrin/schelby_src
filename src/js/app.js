@@ -25,27 +25,39 @@ let options = { strings: ["", "когда прогулка в парке дей�
 	typed = new Typed(".element", options);
 
 /* Input range */
+function range(item) {
+	let selector = item.nextElementSibling;
+	let selectorValue = selector.querySelector('.selector__value');
 
-function rangeSlider(slider) {
-	let popup = slider.closest('.modal__range'),
-		scrollbarSlider = popup.querySelector('.scrollbar__slider'),
-		scrollbarValue = popup.querySelector('.scrollbar__value'),
-		min = +popup.querySelector('.scrollmar__min').textContent,
-		max = +popup.querySelector('.scrollbar__max').textContent,
-		rangeWidth = scrollbarSlider.offsetWidth;
-
-	if (popup.classList.contains('modal__body_2')) {
-		scrollbarValue.value = ((max - min) * scrollbarSlider.value) / 100 + min;
-		/* popup.querySelector('.scrollbar__value').style.left = `calc(${(scrollbarSlider.value - 1) * rangeWidth / 100}px)`; */
-		popup.querySelector('.scrollbar__value').style.left = `calc(${(scrollbarSlider.value - 1)}% - 25px)`;
-	} else {
-		scrollbarValue.value = scrollbarSlider.value;
-		popup.querySelector('.scrollbar__value').style.left = `${(scrollbarSlider.value - 1) * 8.333}%`;
+	selectorValue.innerHTML = item.value;
+	if (item.closest('#body_2')) {
+		selector.style.left = (item.value / 300000) + '%';
+	} else if (item.closest('#body_3')) {
+		if (+item.value === 1) {
+			selector.style.left = `calc(${(100 / 11 * (+item.value - 1))}% + 12.5px)`;
+		} else if (+item.value === 12) {
+			selector.style.left = `calc(${(100 / 11 * (+item.value - 1))}% - 8px)`;
+		} else {
+			selector.style.left = (100 / 11 * (+item.value - 1)) + '%';
+		}
 	}
 }
 
 
+/* maskedinput plugin */
+$.fn.setCursorPosition = function (pos) {
+	if ($(this).get(0).setSelectionRange) {
+		$(this).get(0).setSelectionRange(pos, pos);
+	} else if ($(this).get(0).createTextRange) {
+		var range = $(this).get(0).createTextRange();
+		range.collapse(true);
+		range.moveEnd('character', pos);
+		range.moveStart('character', pos);
+		range.select();
+	}
+};
 
-jQuery(function ($) {
-	$("#main-modal__body-tel").mask("+7 (999) 999-99-99"), { autoclear: false };
-});
+$("#formTel").click(function () {
+	$(this).setCursorPosition(3);
+}).mask("+7 999 999 99 99");
+$("#formTel").mask("+7 999 999 99 99");

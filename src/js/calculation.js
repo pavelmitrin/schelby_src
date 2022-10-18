@@ -38,6 +38,7 @@ function popupOpen(curentPopup) {
 			bodyLock();
 		}
 		curentPopup.classList.add('open');
+		checked();
 		changeModalBody();
 		curentPopup.addEventListener('click', function (e) {
 			if (!e.target.closest('.modal__content')) {
@@ -64,7 +65,7 @@ function bodyLock() {
 		}
 	}
 	body.style.paddingRight = lockPaddingValue;
-	body.classList.add('lock');
+	body.classList.add('_lock');
 
 	unlock = false;
 	setTimeout(function () {
@@ -78,7 +79,7 @@ function bodyUnLock() {
 			el.style.paddingRight = '0px';
 		}
 		body.style.paddingRight = '0px';
-		body.classList.remove('lock');
+		body.classList.remove('_lock');
 	}, timeout);
 }
 
@@ -112,68 +113,158 @@ document.addEventListener('keydown', function (e) {
 			Element.prototype.msMatchesSelector;
 	}
 })();
+function checked() {
+	let calculatorRadio = document.querySelectorAll('.options__input[name="typeObject"]');
+
+	calculatorRadio.forEach((el) => {
+		el.addEventListener('change', () => {
+			calculatorRadio.forEach((item) => {
+				item.nextElementSibling.classList.remove('checked');
+			})
+			el.nextElementSibling.classList.add('checked');
+		})
+	})
+}
 
 
 
 
-
+/* change modal body and submit form */
 function changeModalBody() {
-	let modalBack = document.querySelector('.modal__prev'),
-		modalNext = document.querySelector('.modal__next'),
-		modalFormSubmit = document.querySelector('.modal__form-submit');
-	modalStep = document.querySelector('.modal__step'),
-		modalProgress = document.querySelector('.modal__progressbar-progress'),
-		modalBodes = document.querySelectorAll('.modal__body');
+	const form = document.getElementById('formCalculator');
+	const modalPrev = document.getElementById('modal__back');
+	const modalNext = document.getElementById('modal__next');
+	const formSubmit = document.getElementById('form__button');
+
+	let modalStep = form.querySelector('.modal__step'),
+		modalTitle = form.querySelector('.modal__titles'),
+		modalLastText = form.querySelector('.modal__lasts-text'),
+		progressbar = form.querySelector('.modal__progressbar-progress'),
+		modalBody = form.querySelectorAll('.form__item');
+
 	let step = 1;
 
-
 	modalNext.addEventListener('click', () => {
-		if (step < modalBodes.length) {
+
+		if (step === 1) {
+			let notChecked = [];
+
+			const inputOptions = document.querySelectorAll(`#body_${step} .options__input`);
+
+			inputOptions.forEach((el) => {
+				if (!el.checked) {
+					notChecked.push(el);
+				}
+			})
+			if (inputOptions.length != notChecked.length) {
+				document.querySelector(`#body_${step} .options`).classList.remove('_error');
+			} else {
+				document.querySelector(`#body_${step} .options`).classList.add('_error');
+			}
+		}
+		if (step < 4 && !(document.querySelector(`#body_1 .options`).classList.contains('_error'))) {
 			step++;
-			if (step == 4) {
-				modalProgress.style.width = `${(step - 1) * 33.333}%`;
-				modalBodes.forEach((el) => {
-					el.classList.remove('active');
-				});
-				modalBodes[step - 1].classList.add('active');
-				modalFormSubmit.classList.add('active');
+			progressbar.style.width = (step - 1) * 33.333 + '%';
+			modalBody.forEach((el) => {
+				el.classList.remove('active');
+				if (el.closest(`#body_${step}`)) {
+					el.classList.add('active');
+				}
+			})
+
+			if (step === 4) {
+				modalTitle.classList.add('hidden');
+				modalLastText.classList.add('visible');
 				modalNext.classList.add('hidden');
-				document.querySelector('.modal__last-text').classList.add('active');
-				document.querySelector('.modal__title').classList.add('hidden');
-				document.querySelector('.modal__steps').classList.add('hidden');
+				formSubmit.classList.add('visible');
 			} else {
 				modalStep.textContent = step;
-				modalProgress.style.width = `${(step - 1) * 33.333}%`;
-				modalBodes.forEach((el) => {
-					el.classList.remove('active');
-				})
-				modalBodes[step - 1].classList.add('active');
 			}
-		} else if (step = modalBodes.length) {
-			modalProgress.style.width = `${step * 33.333}%`
+
 		}
+
 	})
 
 
-	modalBack.addEventListener('click', () => {
-		if (step <= modalBodes.length && step > 1) {
+	modalPrev.addEventListener('click', () => {
+
+		if (step > 1) {
 			step--;
-			modalStep.textContent = step;
-			modalProgress.style.width = `${(step - 1) * 33.333}%`;
-			modalBodes.forEach((el) => {
+			progressbar.style.width = (step - 1) * 33.333 + '%';
+			modalBody.forEach((el) => {
 				el.classList.remove('active');
+				if (el.closest(`#body_${step}`)) {
+					el.classList.add('active');
+				}
 			})
-			modalBodes[step - 1].classList.add('active');
-		} else if (step < 0) {
-			modalProgress.style.width = `${step * 33.333}%`
-		}
-		if (step < 4) {
-			modalFormSubmit.classList.remove('active');
-			modalNext.classList.remove('hidden');
-			document.querySelector('.modal__title').classList.remove('hidden');
-			document.querySelector('.modal__steps').classList.remove('hidden');
-			document.querySelector('.modal__last-text').classList.remove('active');
+			modalStep.textContent = step;
+			if (step <= 3) {
+				modalTitle.classList.remove('hidden');
+				modalLastText.classList.remove('visible');
+				modalNext.classList.remove('hidden');
+				formSubmit.classList.remove('visible');
+			}
 		}
 	})
 
+	formSubmit.addEventListener('click', (e) => {
+		let error = validateCalculatorForm();
+
+		if (error === 0) {
+			form.submit();
+		} else {
+			e.preventDefault();
+		}
+	})
 }
+
+
+
+/* validate calculation form */
+function validateCalculatorForm() {
+
+	const form = document.getElementById('formCalculator');
+
+	let error = 0;
+	let formReq = document.querySelectorAll('._req');
+
+	for (let i = 0; i < formReq.length; i++) {
+		const el = formReq[i];
+
+		formRemoveError(el);
+
+		if (el.classList.contains('formEmail')) {
+			if (emailTest(el)) {
+				formAddError(el);
+				error++;
+			}
+		} else if (el.classList.contains('formTel')) {
+			if (el.value == '') {
+				formAddError(el);
+				error++;
+			}
+		} else if (el.classList.contains('formName')) {
+			if (el.value == '') {
+				formAddError(el);
+				error++;
+			}
+		}
+
+	}
+
+	return error;
+}
+
+function formAddError(el) {
+	el.parentElement.classList.add('_error');
+	el.classList.add('_error');
+}
+function formRemoveError(el) {
+	el.parentElement.classList.remove('_error');
+	el.classList.remove('_error');
+}
+function emailTest(el) {
+	return !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(el.value);
+}
+
+

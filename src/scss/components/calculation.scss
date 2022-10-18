@@ -10,7 +10,7 @@
 	overflow-y: auto;
 	overflow-x: hidden;
 	transition: all 0.8s ease 0s;
-	z-index: 11;
+	z-index: 13;
 }
 .modal.open {
 	opacity: 1;
@@ -115,11 +115,11 @@
 	flex-direction: column;
 }
 .modal__header {
-	padding: 0 20px;
+	padding: 10px 20px 10px;
 }
 @media (min-width:1000px) {
 	.modal__header {
-		padding: 0 45px;
+		padding: 10px 45px 20px;
 	}
 }
 .modal__titles {
@@ -128,7 +128,9 @@
 	align-items: center;
 	font-size: 14px;
 	padding: 0 0 20px;
-	
+}
+.modal__titles.hidden {
+	display: none;
 }
 .modal__title {
 	flex: 0 0 85%;
@@ -142,27 +144,35 @@
 .modal__step {
 }
 .modal__lasts-text {
-	font-size: 20px;
+	font-size: 18px;
 	padding: 0 0 20px;
 	line-height: 1.4;
 	display: none;
+	font-weight: 500;
+	text-align: center;
 }
 @media(min-width:1000px) {
 	.modal__lasts-text {
-	font-size: 24px;
-	line-height: 1.5;
+		font-size: 20px;
+		line-height: 1.5;
+		
 	}
+}
+.modal__lasts-text.visible {
+	display: block;
 }
 .modal__last-text {
 }
 .modal__progressbar {
 	height: 5px;
 	width: 100%;
+	background-color: $secondcolor;
 }
 .modal__progressbar-progress {
-	width: 100%;
+	width: 0;
 	height: 100%;
-	background-color: $secondcolor;
+	background-color: $orange;
+	transition: width 1.2s ease 0s;
 }
 .form__items {
 	padding: 0 20px;
@@ -172,9 +182,12 @@
 		padding: 0 45px;
 	}
 }
+
 .form__item {
+	display: none;
 }
 .form__item.active {
+	display: block;
 
 }
 .form__label {
@@ -195,6 +208,8 @@
 	display: grid;
 	grid-template: repeat(4, 1fr)/ 1fr;
 	gap: 10px;
+	padding: 0;
+	transition: all 0.8s ease 0s;
 }
 @media (min-width:425px) {
 	.options {
@@ -211,6 +226,10 @@
 		grid-template: 1fr / repeat(4, 1fr);
 	}
 }
+.options._error {
+	padding: 10px;
+	box-shadow: 0 0 15px red;
+}
 .options__item {
 	width: 100%;
 	position: relative;
@@ -221,20 +240,30 @@
 		height: auto;
 	}
 }
+.options__item-check {
+	display: none;
+	position: absolute;
+	top: -10px;
+	left: -8px;
+	width: 20px;
+	height: 20px;
+	background-color: $orange;
+	border-radius: 50%;
+	z-index: 1;
+	text-align: center;
+}
+.options__item-check.checked {
+	display: block;
+}
+.options__item-check img {
+	max-width: 20px;
+	max-height: 20px;
+}
 .options__label {
 	width: 100%;
 	position: relative;
 }
-/* .options__label::after {
-	content: '';
-	position: absolute;
-	top: -5px;
-	left: -5px;
-	background-color: $light;
-	width: 30px;
-	height: 30px;
-	border-radius: 50%;
-} */
+
 .options__label img {
 	height: 70%;
 	width: 100%;
@@ -251,49 +280,184 @@
 .options__input {
 	appearance: none;
 	position: absolute;
-	width: 0;
-	height: 0;
-}
-.options__input:checked {
-	top: -10px;
-	left: -10px;
-	width: 30px;
-	height: 30px;
-	border-radius: 50%;
-	background-color: $light;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
 }
 
+// ---------------------body_2, body_3---------------------
 .ranges {
+	margin-top: 40px;
 }
+.range {
+	position: relative;
+	width: 90%;
+	margin: 0 auto;
+}
+.input__range {
+	appearance: none;
+	width: 100%;
+	height: 3px;
+	border-radius: 20px;
+	background-color: $orange;
+}
+input.input__range::-webkit-slider-thumb {
+	appearance: none;
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+	position: relative;
+	z-index: 12;
+}
+input.input__range:focus + .selector > .selector__btn {
+	box-shadow: 0px 1px 8px 1px $black;
+}
+.selector {
+	width: 30px;
+	height: 60px;
+	position: absolute;
+	bottom: -45%;
+	left: 50%;
+	transform: translate(-50%);
+	z-index: 11;
+}
+#body_3 .selector {
+	left: 54.5455%;
+}
+.selector__btn {
+	width: 25px;
+	height: 25px;
+	background: rgb(254,104,41);
+	background: radial-gradient(circle, rgba(254,104,41,1) 0%, rgba(254,104,41,1) 50%, rgba(254,104,41,0.2553396358543417) 100%);
+	border-radius: 50%;
+	position: absolute;
+	bottom: 0;
+	transition: all 0.4s ease 0s;
+}
+
+.selector__value {
+	min-width: 75px;
+	height: 30px;
+	position: absolute;
+	left: -100%;
+	top: 0;
+	box-shadow: 0 1px 8px 0 rgb(0 0 0 / 20%);
+	text-align: center;
+	font-size: 14px;
+	line-height: 2;
+	padding: 0 10px;
+	font-weight: 500;
+}
+#body_3 .selector__value {
+	min-width: 30px;
+	left: -10%;
+}
+
 .ranges__meanings {
+	margin-top: 30px;
+	display: flex;
+	justify-content: space-between;
+	font-size: 15px;
+	line-height: 1.55;
+	font-weight: 500;
 }
-.ranges__min {
-}
-.ranges__max {
-}
+// ---------------------body_4---------------------
 .informations {
+	margin-top: 40px;
 }
 .informations__tel {
 }
 .informations__label {
+	font-size: 24px;
+	line-height: 1.55;
+	font-weight: 400;
 }
 .form__input {
+	display: block;
+	margin: 20px 0;
+	padding: 15px;
+	width: 100%;
+	color: $black;
+	font-size: 16px;
+	line-height: 1.33;
+	font-weight: 500;
+	border-radius: 20px;
+
+	border-bottom: 1px solid $orange;
 }
-.informations__name {
+.form__input:focus {
+	border: 1px solid $orange;
 }
-.informations__email {
+.form__input::placeholder {
+	color: $orange;
+	opacity: 0.7;
 }
+input._error {
+	box-shadow: 0 0 15px red;
+}
+// ---------------------footer---------------------
 .modal__footer {
-	padding: 0 20px;
+	padding: 30px 20px 10px;
+	display: flex;
+	justify-content: space-between;
 }
 @media (min-width:1000px) {
 	.modal__footer  {
-		padding: 0 45px;
+		padding: 50px 45px 0;
 	}
 }
-.modal__back {
+#modal__back, #modal__next, #form__button {
+	min-width: 100px;
+	padding: 15px 15px;
+	font-size: 14px;
+	font-weight: 700;
+	color: $white;
 }
-.modal__next {
+@media (min-width: 1000px) {
+	#modal__back, #modal__next, #form__button {
+		padding: 15px 60px;
+	}
 }
-.form__button {
+#modal__back, #modal__next {
+	position: relative;
+}
+#modal__back img, #modal__next img {
+	position: absolute;
+	display: none;
+	top: 20%;
+	width: 30px;
+	height: 30px;
+}
+@media (min-width:1000px) {
+	#modal__back img, #modal__next img {
+		display: block;
+	}
+}
+#modal__back img {
+	left: 15%;
+	transform: rotate(0.5turn);
+}
+#modal__next img {
+	right: 15%;
+}
+#modal__back {
+	transition: all 0.8s ease 0s;
+	background-color: $secondcolor;
+	opacity: .7;
+}
+#modal__back:active {
+	opacity: 1;
+}
+#modal__next, #form__button {
+	background-color: $light;
+}
+#modal__next.hidden {
+	display: none;
+}
+#form__button {
+	display: none;
+}
+#form__button.visible {
+	display: block;
 }

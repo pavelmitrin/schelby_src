@@ -113,7 +113,7 @@
 </div> -->
 
 
-<div id="formPopup" class="modal">
+<div id="calculation" class="modal">
 	<div class="modal__dialog">
 		<div class="modal__head">
 			<a href="#" class="modal__close close-modal">
@@ -121,7 +121,7 @@
 			</a>
 		</div>
 		<div class="modal__content">
-			<form action="#" id="form" class="form__body">
+			<form action="#" method="post" id="formCalculator" class="form__body">
 				<div class="modal__header">
 					<div class="modal__titles">
 						<h5 class="modal__title">Пройдите краткий опросник, чтоб наши специалисты помогли вам с решением
@@ -140,18 +140,21 @@
 				</div>
 
 				<div class="form__items">
-					<div class="form__item" id="body_1">
+					<div class="form__item active" id="body_1">
 						<div class="form__label">
 							<h3 class="form__label-title">Какой у вас тип объекта?</h3 la>
 						</div>
-						<div class="options">
-							<div class="options__item">
+						<div class="options ">
+							<div class="options__item ">
 								<label for="privateFacilities" class="options__label">
 									<img src="@img/popup/1.webp" alt="Дом">
 									<p class="options__text">Частные объекты, дача, дом и т.п.</p>
 								</label>
 								<input class="options__input" type="radio" name="typeObject"
 									value="Частные объекты, дача, дом и т.п." id="privateFacilities">
+								<div class="options__item-check">
+									<img src="@img/popup/check.svg" alt="">
+								</div>
 							</div>
 							<div class="options__item">
 								<label for="schools" class="options__label">
@@ -161,15 +164,21 @@
 								</label>
 								<input class="options__input" type="radio" name="typeObject" id="schools"
 									value="Общеобразовательные учреждения, школы, колледжи, детские сады и т.п.">
+								<div class="options__item-check">
+									<img src="@img/popup/check.svg" alt="">
+								</div>
 							</div>
 							<div class="options__item">
 								<label for="residentialСomplexes" class="options__label">
-									<img src="@img/popup/3.jpg" alt="Жилые комплексы">
+									<img src="@img/popup/3.webp" alt="Жилые комплексы">
 									<p class="options__text">Жилые комплексы, ГБУ жилищники, программы реновации, мой двор и т.п.
 									</p>
 								</label>
 								<input class="options__input" type="radio" name="typeObject" id="residentialСomplexes"
 									value="Жилые комплексы, ГБУ жилищники, программы реновации, мой двор и т.п.">
+								<div class="options__item-check">
+									<img src="@img/popup/check.svg" alt="">
+								</div>
 							</div>
 							<div class="options__item">
 								<label for="parks" class="options__label">
@@ -178,16 +187,25 @@
 								</label>
 								<input class="options__input" type="radio" name="typeObject" id="parks"
 									value="Парки, скверы, благотворительные объекты и т.п.">
+								<div class="options__item-check">
+									<img src="@img/popup/check.svg" alt="">
+								</div>
 							</div>
 						</div>
 					</div>
-					<div class="form__item" id="body_2">
+					<div class="form__item " id="body_2">
 						<div class="form__label">
 							<h3 class="form__label-title">Какой бюджет вы закладываете в благоустройство территории?</h3>
 						</div>
 						<div class="ranges">
-							<input type="number" min="300000" max="30000000" name="budgetNumber" id="budgetNumber">
-							<input type="range" name="budget" id="rangeBudget" min="0" max="100" step="1">
+							<div class="range">
+								<input type="range" name="budget" id="rangeBudget" class="input__range" oninput=range(this)
+									min="300000" max="30000000" step="297000" value="14850000">
+								<div class="selector">
+									<div class="selector__btn"></div>
+									<div class="selector__value">14850000</div>
+								</div>
+							</div>
 							<div class="ranges__meanings">
 								<p class="ranges__min">300000</p>
 								<p class="ranges__max">30000000</p>
@@ -195,41 +213,52 @@
 						</div>
 
 					</div>
-					<div class="form__item" id="body_3">
+					<div class="form__item " id="body_3">
 						<div class="form__label">
 							<h3 class="form__label-title">Укажите сроки сдачи объекта? (в месяцах)</h3>
 						</div>
 						<div class="ranges">
-							<input type="number" min="1" max="12" name="dateNumber" id="dateNumber">
-							<input type="range" name="date" id="rangeDate" min="1" max="12" step="1">
+							<div class="range">
+								<input type="range" name="date" id="rangeDate" class="input__range" oninput=range(this) min="1"
+									max="12" step="1" value="7">
+								<div class="selector">
+									<div class="selector__btn"></div>
+									<div class="selector__value">7</div>
+								</div>
+							</div>
 							<div class="ranges__meanings">
 								<p class="ranges__min">1</p>
 								<p class="ranges__max">12</p>
 							</div>
 						</div>
 					</div>
-					<div class="form__item" id="body_4">
+					<div class="form__item " id="body_4">
 						<div class="informations">
 							<div class="informations__tel">
-								<label for="formTel" class="informations__label">Ваш номер телефона</label>
-								<input type="tel" name="tel" id="formTel" class="form__input">
+								<div class="informations__label">Ваш номер телефона</div>
+								<input type="tel" name="tel" id="formTel" class="form__input formTel _req"
+									placeholder="+7 (999) 999 99 99">
 							</div>
 							<div class="informations__name">
-								<label for="formName" class="informations__label">Ваше имя</label>
-								<input type="text" name="name" id="formName" class="form__input">
+								<div class="informations__label">Ваше имя</div>
+								<input type="text" name="name" id="formName" class="form__input formName _req"
+									placeholder="Имя">
 							</div>
 							<div class="informations__email">
-								<label for="formEmail" class="informations__label">Ваш E-mail</label>
-								<input type="email" name="email" id="formEmail" class="form__input">
+								<div class="informations__label">Ваш E-mail</div>
+								<input type="email" name="email" id="formEmail" class="form__input formEmail _req"
+									placeholder="Почта">
 							</div>
 						</div>
 					</div>
 				</div>
 
 				<div class="modal__footer">
-					<button class="modal__back">Назад</button>
-					<button class="modal__next">Вперёд</button>
-					<button type="submit" class="form__button">Отправить ответы</button>
+					<button id="modal__back" type="button" id="back"><img src="@img/popup/arrow.svg" alt="">
+						Назад</button>
+					<button id="modal__next" type="button" id="forward">Вперёд <img src="@img/popup/arrow.svg"
+							alt=""></button>
+					<button id="form__button" type="submit">Отправить ответы</button>
 				</div>
 			</form>
 		</div>
