@@ -69,57 +69,7 @@ a.btn_2 {
 
 // ---------------------/Вне блоков---------------------
 
-// ---------------------preview---------------------
-
-.preview {
-	position: relative;
-	height: 100vh;
-	overflow: hidden;
-}
-.preview::after {
-	content: '';
-	display: block;
-	position: absolute;
-	top: 0;
-	left: 0;
-	background-color: rgba(0, 0, 0, 0.3);
-	width: 100%;
-	height: 100%;
-}
-.preview .container {
-	width: 100%;
-	height: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-.preview__title {
-	color: $white;
-	font-size: 52px;
-	font-weight: 600;
-	z-index: 2;
-	text-align: center;
-}
-@media (min-width:768px) {
-	.preview__title {
-		text-align: left;
-	} 
-}
-.preview__bg {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-}
-.preview__bg img {
-	max-width: 100%;
-	height: 100%;
-	object-fit: cover;
-	object-position: center;
-}
-
-// ---------------------/preview---------------------
+@import "../components/preview";
 
 // ---------------------bait---------------------
 

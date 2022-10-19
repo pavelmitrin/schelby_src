@@ -70,6 +70,11 @@ a.btn_2 {
 // ---------------------/Вне блоков---------------------
 
 @import "../components/preview";
+@media (min-width:1200px) {
+	.preview {
+		height: 100vh;
+	}
+}
 
 // ---------------------breadcump__div---------------------
 .breadcumps {
@@ -80,96 +85,78 @@ a.btn_2 {
 
 // ---------------------/breadcump__div---------------------
 
-// ---------------------mounting---------------------
+// ---------------------catalog---------------------
 
-.mounting {
+.catalog {
 	background-color: #f1f1f3;
-	padding: 0 0 30px;
 }
-
-.mounting__title {
-	font-size: 18px;
-	font-weight: 600;
-	text-transform: uppercase;
-	margin-bottom: 70px;
+.container {
 }
-.mounting__subtitle {
-	font-size: 20px;
-	font-weight: 100;
-	padding-bottom: 30px;
-}
-.mounting__types {
-	padding: 30px 0;
-	max-width: 760px;
+.catalog__text {
+	max-width: 560px;
 	margin: 0 auto;
-}
-.mounting__types-title {
 	text-align: center;
+	margin-bottom: 90px;
+}
+.catalog__title {
 	font-size: 26px;
 	line-height: 1.23;
+	margin-bottom: 30px;
 	font-weight: 600;
-	margin-bottom: 45px;
 }
-@media (min-width:768px) {
-	.mounting__types-title {
-		margin-bottom: 60px;
-	}
-}
-.mounting__types-wrapper {
-}
-.mounting__item {
-	display: flex;
-	align-items: center;
-	margin-bottom: 40px;
-}
-.mounting__image {
-	
-}
-.mounting__text {
-	padding-left: 15px;
-}
-@media (min-width:768px) {
-	.mounting__text {
-		padding-left: 20px;
-	}
-}
-@media (min-width:992px) {
-	.mounting__text {
-		padding-left: 30px;
-	}
-}
-.mounting__text-title {
+.catalog__subtitle {
 	font-size: 16px;
-	line-height: 1.35;
-	font-weight: 600;
-	margin-bottom: 14px;
+	line-height: 20px;
 }
-@media (min-width:768px) {
-	.mounting__text-title {
-		font-size: 18px;
-	}	
+.catalog__items {
+	display: flex;
+	text-align: center;
+	flex-wrap: wrap;
+	justify-content: center;
 }
-@media (min-width:992px) {
-	.mounting__text-title {
-		font-size: 20px;
-	}	
+.catalog__item {
+	flex:  0 0 100%;
+	padding: 10px;
+	cursor: pointer;
 }
-.mounting__text-text {
-	font-size: 14px;
-	line-height: 1.45;
+@media(min-width:568px) {
+	.catalog__item {
+		flex:  0 0 50%;
+	}
 }
-@media (min-width:768px) {
-	.mounting__text-text {
-		font-size: 16px;
-	}	
-}
-@media (min-width:992px) {
-	.mounting__text-text {
-		font-size: 18px;
+@media(min-width:992px) {
+	.catalog__item {
+		flex:  0 0 25%;
 	}	
 }
 
-// ---------------------/mounting---------------------
+.item {
+}
+.item__img {
+	width: 100%;
+	position: relative;
+}
+.item__img img {
+	width: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+.item__text {
+	padding: 20px 0 30px;
+	
+}
+.item__title {
+	font-size: 20px;
+	font-weight: 400;
+	color: $primalcolor;
+}
+.item__description {
+	font-size: 16px;
+	margin-top: 10px;
+	color: $secondcolor;
+}
+
+// ---------------------/catalog---------------------
 
 
 @import "../layout/repeat";
