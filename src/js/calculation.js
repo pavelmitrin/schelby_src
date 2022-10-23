@@ -7,20 +7,25 @@ let unlock = true;
 const timeout = 800;
 
 if (popupLinks.length > 0) {
-	for (let index = 0; index < popupLinks.length; index++) {
+	/* for (let index = 0; index < popupLinks.length; index++) {
 		const popupLink = popupLinks[index];
 		popupLink.addEventListener('click', function (e) {
 			const popupName = popupLink.getAttribute('href').replace('#', '');
-			const curentPopup = document.getElementById(popupName);
-			
-			
-		console.log(popupName);
-		console.log(curentPopup);
-		
-		popupOpen(curentPopup);
+			const curentPopup = document.getElementById(popupName);		
+			popupOpen(curentPopup);
 			e.preventDefault();
 		});
-	}
+	} */
+
+	popupLinks.forEach((el => {
+		el.addEventListener('click', (e) => {
+			const popupName = el.getAttribute('href').replace('#', '');
+			const curentPopup = document.getElementById(popupName);	
+			popupOpen(curentPopup);
+			e.preventDefault();
+		})
+	}))
+
 }
 
 const popupCloseIcon = document.querySelectorAll('.close-modal');
@@ -50,7 +55,7 @@ function popupOpen(curentPopup) {
 			}
 		})
 
-		if (curentPopup.id = 'calculation') {
+		if (curentPopup.id == 'calculation') {
 			checked();
 			changeModalBody();
 		}
