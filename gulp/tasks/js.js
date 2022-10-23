@@ -9,7 +9,7 @@ export const js = () => {
 				message: "Error: <%= error.message %>"
 			}))
 		)
-		.pipe(GulpUglify())
+		// .pipe(GulpUglify())
 		.pipe(rename({
 			extname: ".min.js"
 		}))
