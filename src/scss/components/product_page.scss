@@ -1,0 +1,240 @@
+
+#product.modal {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255, 255, 255, 0.5);
+	top: 0;
+	left: 0;	
+	opacity: 0;
+	visibility: hidden;
+	overflow-y: auto;
+	overflow-x: hidden;
+	transition: all 0.8s ease 0s;
+	z-index: 13;
+}
+#product.open {
+	opacity: 1;
+	visibility: visible;
+}
+#product .modal__dialog {
+	min-height: 100%;
+	width: 100%;
+	display: flex; 
+	justify-content: center;
+	align-items: center;
+	padding: 50px 10px;
+	position: relative;
+}
+#product .modal__head {
+	position: absolute;
+	width: 100%;
+	height: 50px;
+	background-color: $black;
+	top: 0;
+	left: 0;
+	z-index: 23;
+}
+@media (min-width:1000px) {
+	#product .modal__head {
+		background-color: inherit;
+	}
+}
+#product.modal.open  .modal__head  {
+	opacity: 1;
+	transform: perspective(600px) translate(0px, 0px) rotateX(0deg);
+}
+#product .modal__close {
+	position: absolute;
+	color: $orange;
+	right: 30px;
+	top: 10px;
+	display: block;
+	width: 30px;
+	height: 30px;
+}
+@media (min-width:1000px) {
+	.modal__close {
+		position: absolute;
+		color: $orange;
+		right: 30px;
+		top: 20px;
+		display: block;
+		width: 30px;
+		height: 30px;
+	}
+}
+.modal__close span {
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+.modal__close span::before, .modal__close span::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	background-color: $orange;
+	display: inline-block;
+}
+.modal__close span::before {
+	top: 13.5px;
+	transform: rotate(45deg);
+}
+.modal__close span::after {
+	bottom: 13.5px;
+	transform: rotate(-45deg);
+}
+#product .close-modal {
+}
+#product .modal__content {
+	background-color: #fff;
+	color: $black;
+	max-width: 100%;
+	padding: 15px 0;
+	transition: all 0.8s ease 0s;
+	opacity: 0;
+	transform: perspective(600px) translate(0px, -100%) rotateX(45deg);
+	overflow: hidden;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	box-shadow: 0 0 12px #000;
+}
+@media (min-width:992px) {
+	#product .modal__content {
+		flex-direction: row;
+		max-width: 90%;
+	}
+}
+@media (min-width:1000px) {
+	#product .modal__content {
+		padding: 30px 0;
+	}
+}
+#product.modal.open  .modal__content {
+	opacity: 1;
+	transform: perspective(600px) translate(0px, 0px) rotateX(0deg);
+}
+#product .product__images {
+	/* flex: 1 1 auto; */
+	overflow: hidden;
+	max-height: 560px;
+	position: relative;
+	text-align: center;
+}
+@media (min-width:992px) {
+	#product .product__images {
+		
+		flex: 0 0 50%;
+		overflow: hidden;
+	}
+}
+#product .swiper-wrapper {
+}
+#product .swiper-slide {
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+#product .swiper-slide img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	object-position: center;
+}
+
+#product .swiper-button-prev {
+}
+#product .swiper-button-next {
+}
+#product .product__descriptions {
+	padding-top: 30px;
+	width: 80%;
+	margin: 0 auto;
+}
+@media (min-width:992px) {
+	#product .product__descriptions {
+		width: auto;
+		flex: 0 0 50%;
+		padding: 0 20px 0;
+	}
+}
+#product #product .desc {
+}
+#product .desc__title {
+	font-size: 20px;
+	line-height: 1.35;
+	font-weight: 400;
+}
+@media (min-width:576px) {
+	#product .desc__title {
+		font-size: 22px;
+	}
+}
+@media (min-width:768px) {
+	#product .desc__title {
+		font-size: 24px;
+	}
+}
+#product .desc__article {
+	font-size: 14px;
+	line-height: 1.55;
+	color: $secondcolor;
+	opacity: .8;
+}
+#product .desc__price {
+	color: $primalcolor;
+	background-color: $light;
+	cursor: pointer;
+	display: block;
+	text-align: center;
+	margin: 20px 0;
+	padding: 18px 20px;
+	font-weight: 700;
+	font-size: 16px;
+}
+#product .desc__text {
+	font-size: 12px;
+	line-height: 1.55;
+}
+@media (min-width:576px) {
+	#product .desc__text {
+		font-size: 14px;
+	}
+}
+#product .desc__options {
+}
+#product .desc__options ul {
+	list-style: disc;
+	margin-bottom: 20px;
+}
+
+#product .desc__options li {
+	list-style: disc;
+
+}
+#product .desc__descriptions {
+}
+
+/* 
+#product .modal__content {
+}
+#product .product__images {
+	width: 100%;
+	height: 90vh;
+}
+#product .swiper-wrapper {
+}
+#product .swiper-slide {
+}
+#product .swiper-slide img {
+}
+.swiper-button-prev {
+}
+.swiper-button-next {
+}
+.product__descriptions {
+} */

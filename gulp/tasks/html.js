@@ -53,3 +53,54 @@ export const html = () => {
 		.pipe(app.gulp.dest(app.path.build.html))
 		.pipe(app.plugins.browsersync.stream());
 }
+export const catalog = () => {
+	return app.gulp.src(app.path.src.catalog)
+		.pipe(app.plugins.plumber(
+			app.plugins.notify.onError({
+				title: "HTML",
+				message: "Error: <%= error.message %>"
+			}))
+		)
+		.pipe(fileinclude())
+		.pipe(app.plugins.replace(/@img\//g, 'img/'))
+		.pipe(app.plugins.if(
+			app.isBuild,
+			app.plugins.replace(".jpg", '.webp'))
+		)
+		.pipe(app.plugins.if(
+			app.isBuild,
+			app.plugins.replace(".jpeg", '.webp'))
+		)
+		.pipe(app.plugins.if(
+			app.isBuild,
+			app.plugins.replace(".png", '.webp'))
+		)
+
+		/* .pipe(
+			app.plugins.if(
+				app.isBuild,
+				webpHtmlNosvg()
+			)
+		) */
+		.pipe(
+			app.plugins.if(
+				app.isBuild,
+				versionNumber({
+					'value': '%DT%',
+					'append': {
+						'key': '_v',
+						'cover': 0,
+						'to': [
+							'css',
+							'js',
+						]
+					},
+					'output': {
+						'file': 'gulp/version.json'
+					}
+				})
+			)
+		)
+		.pipe(app.gulp.dest(app.path.build.catalog))
+		.pipe(app.plugins.browsersync.stream());
+}

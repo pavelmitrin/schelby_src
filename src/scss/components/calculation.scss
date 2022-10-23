@@ -12,12 +12,12 @@
 	transition: all 0.8s ease 0s;
 	z-index: 13;
 }
-.modal.open {
+#calculation.modal.open {
 	opacity: 1;
 	visibility: visible;
 }
 
-.modal__dialog {
+#calculation .modal__dialog {
 	min-height: 100%;
 	width: 100%;
 	display: flex; 
@@ -26,7 +26,7 @@
 	padding: 50px 10px;
 	position: relative;
 }
-.modal__head {
+#calculation .modal__head {
 	position: absolute;
 	width: 100%;
 	height: 50px;
@@ -38,15 +38,15 @@
 	transition: all 0.8s ease 0.4s; */
 }
 @media (min-width:1000px) {
-	.modal__head {
+	#calculation .modal__head {
 		background-color: inherit;
 	}
 }
-.modal.open  .modal__head  {
+#calculation .modal.open  .modal__head  {
 	opacity: 1;
 	transform: perspective(600px) translate(0px, 0px) rotateX(0deg);
 }
-.modal__close {
+#calculation .modal__close {
 	position: absolute;
 	color: #fff;
 	right: 30px;
@@ -56,7 +56,7 @@
 	height: 30px;
 }
 @media (min-width:1000px) {
-	.modal__close {
+	#calculation .modal__close {
 		position: absolute;
 		color: #fff;
 		right: 30px;
@@ -66,13 +66,13 @@
 		height: 30px;
 	}
 }
-.modal__close span {
+#calculation .modal__close span {
 	display: block;
 	width: 100%;
 	height: 100%;
 	position: relative;
 }
-.modal__close span::before, .modal__close span::after {
+#calculation .modal__close span::before, .modal__close span::after {
 	content: '';
 	position: absolute;
 	width: 100%;
@@ -80,17 +80,17 @@
 	background-color: #fff;
 	display: inline-block;
 }
-.modal__close span::before {
+#calculation .modal__close span::before {
 	top: 13.5px;
 	transform: rotate(45deg);
 }
-.modal__close span::after {
+#calculation .modal__close span::after {
 	bottom: 13.5px;
 	transform: rotate(-45deg);
 }
 .close-modal {
 }
-.modal__content {
+#calculation .modal__content {
 	background-color: #fff;
 	color: $black;
 	max-width: 1000px;
@@ -102,48 +102,48 @@
 	position: relative;
 }
 @media (min-width:1000px) {
-	.modal__content {
+	#calculation .modal__content {
 		padding: 30px 0;
 	}
 }
-.modal.open  .modal__content {
+#calculation .modal.open  .modal__content {
 	opacity: 1;
 	transform: perspective(600px) translate(0px, 0px) rotateX(0deg);
 }
-.form__body {
+#calculation .form__body {
 	display: flex;
 	flex-direction: column;
 }
-.modal__header {
+#calculation .modal__header {
 	padding: 10px 20px 10px;
 }
 @media (min-width:1000px) {
-	.modal__header {
+	#calculation .modal__header {
 		padding: 10px 45px 20px;
 	}
 }
-.modal__titles {
+#calculation .modal__titles {
 	width: 100%;
 	display: flex;
 	align-items: center;
 	font-size: 14px;
 	padding: 0 0 20px;
 }
-.modal__titles.hidden {
+#calculation .modal__titles.hidden {
 	display: none;
 }
-.modal__title {
+#calculation .modal__title {
 	flex: 0 0 85%;
 	margin-right: 5px;
 }
-.modal__steps {
+#calculation .modal__steps {
 	font-weight: 500;
 	flex: 0 0 15%;
 	text-align: center;
 }
 .modal__step {
 }
-.modal__lasts-text {
+#calculation .modal__lasts-text {
 	font-size: 18px;
 	padding: 0 0 20px;
 	line-height: 1.4;
@@ -152,58 +152,58 @@
 	text-align: center;
 }
 @media(min-width:1000px) {
-	.modal__lasts-text {
+	#calculation .modal__lasts-text {
 		font-size: 20px;
 		line-height: 1.5;
 		
 	}
 }
-.modal__lasts-text.visible {
+#calculation .modal__lasts-text.visible {
 	display: block;
 }
-.modal__last-text {
+#calculation .modal__last-text {
 }
-.modal__progressbar {
+#calculation .modal__progressbar {
 	height: 5px;
 	width: 100%;
 	background-color: $secondcolor;
 }
-.modal__progressbar-progress {
+#calculation .modal__progressbar-progress {
 	width: 0;
 	height: 100%;
 	background-color: $orange;
 	transition: width 1.2s ease 0s;
 }
-.form__items {
+#calculation .form__items {
 	padding: 0 20px;
 }
 @media (min-width:1000px) {
-	.form__items {
+	#calculation .form__items {
 		padding: 0 45px;
 	}
 }
 
-.form__item {
+#calculation .form__item {
 	display: none;
 }
-.form__item.active {
+#calculation .form__item.active {
 	display: block;
 
 }
 .form__label {
 }
-.form__label-title {
+#calculation .form__label-title {
 	font-size: 22px;
 	line-height: 1.5;
 	font-weight: 400;
 	padding: 15px 0;
 }
 @media (min-width:1000px) {
-	.form__label-title {
+	#calculation .form__label-title {
 		font-size: 26px;		
 	}
 }
-.options {
+#calculation .options {
 	max-width: 100%;
 	display: grid;
 	grid-template: repeat(4, 1fr)/ 1fr;
@@ -212,35 +212,35 @@
 	transition: all 0.8s ease 0s;
 }
 @media (min-width:425px) {
-	.options {
+	#calculation .options {
 		grid-template: repeat(2, 1fr) / repeat(2, 1fr);
 	}
 }
 @media (min-width:592px) {
-	.options {
+	#calculation .options {
 		grid-template: repeat(2, 1fr) / repeat(3, 1fr);
 	}
 }
 @media (min-width:742px) {
-	.options {
+	#calculation .options {
 		grid-template: 1fr / repeat(4, 1fr);
 	}
 }
-.options._error {
+#calculation .options._error {
 	padding: 10px;
 	box-shadow: 0 0 15px red;
 }
-.options__item {
+#calculation .options__item {
 	width: 100%;
 	position: relative;
 	height: 200px;
 }
 @media (min-width:425px) {
-	.options__item {
+	#calculation .options__item {
 		height: auto;
 	}
 }
-.options__item-check {
+#calculation .options__item-check {
 	display: none;
 	position: absolute;
 	top: -10px;
@@ -252,32 +252,32 @@
 	z-index: 1;
 	text-align: center;
 }
-.options__item-check.checked {
+#calculation .options__item-check.checked {
 	display: block;
 }
-.options__item-check img {
+#calculation .options__item-check img {
 	max-width: 20px;
 	max-height: 20px;
 }
-.options__label {
+#calculation .options__label {
 	width: 100%;
 	position: relative;
 }
 
-.options__label img {
+#calculation .options__label img {
 	height: 70%;
 	width: 100%;
 	object-fit: cover;
 	object-position: center;
 	position: relative;
 }
-.options__text {
+#calculation .options__text {
 	text-align: left;
 	font-size: 15px;
 	margin: 10px 0;
 	word-wrap: break-word;
 }
-.options__input {
+#calculation .options__input {
 	appearance: none;
 	position: absolute;
 	top: 0;
@@ -287,22 +287,22 @@
 }
 
 // ---------------------body_2, body_3---------------------
-.ranges {
+#calculation .ranges {
 	margin-top: 40px;
 }
-.range {
+#calculation .range {
 	position: relative;
 	width: 90%;
 	margin: 0 auto;
 }
-.input__range {
+#calculation .input__range {
 	appearance: none;
 	width: 100%;
 	height: 3px;
 	border-radius: 20px;
 	background-color: $orange;
 }
-input.input__range::-webkit-slider-thumb {
+#calculation input.input__range::-webkit-slider-thumb {
 	appearance: none;
 	width: 40px;
 	height: 40px;
@@ -310,10 +310,10 @@ input.input__range::-webkit-slider-thumb {
 	position: relative;
 	z-index: 12;
 }
-input.input__range:focus + .selector > .selector__btn {
+#calculation input.input__range:focus + .selector > .selector__btn {
 	box-shadow: 0px 1px 8px 1px $black;
 }
-.selector {
+#calculation .selector {
 	width: 30px;
 	height: 60px;
 	position: absolute;
@@ -325,7 +325,7 @@ input.input__range:focus + .selector > .selector__btn {
 #body_3 .selector {
 	left: 54.5455%;
 }
-.selector__btn {
+#calculation .selector__btn {
 	width: 25px;
 	height: 25px;
 	background: rgb(254,104,41);
@@ -336,7 +336,7 @@ input.input__range:focus + .selector > .selector__btn {
 	transition: all 0.4s ease 0s;
 }
 
-.selector__value {
+#calculation .selector__value {
 	min-width: 75px;
 	height: 30px;
 	position: absolute;
@@ -354,7 +354,7 @@ input.input__range:focus + .selector > .selector__btn {
 	left: -10%;
 }
 
-.ranges__meanings {
+#calculation .ranges__meanings {
 	margin-top: 30px;
 	display: flex;
 	justify-content: space-between;
@@ -363,17 +363,17 @@ input.input__range:focus + .selector > .selector__btn {
 	font-weight: 500;
 }
 // ---------------------body_4---------------------
-.informations {
+#calculation .informations {
 	margin-top: 40px;
 }
-.informations__tel {
+#calculation .informations__tel {
 }
-.informations__label {
+#calculation .informations__label {
 	font-size: 24px;
 	line-height: 1.55;
 	font-weight: 400;
 }
-.form__input {
+#calculation .form__input {
 	display: block;
 	margin: 20px 0;
 	padding: 15px;
@@ -386,24 +386,24 @@ input.input__range:focus + .selector > .selector__btn {
 
 	border-bottom: 1px solid $orange;
 }
-.form__input:focus {
+#calculation .form__input:focus {
 	border: 1px solid $orange;
 }
-.form__input::placeholder {
+#calculation .form__input::placeholder {
 	color: $orange;
 	opacity: 0.7;
 }
-input._error {
+#calculation input._error {
 	box-shadow: 0 0 15px red;
 }
 // ---------------------footer---------------------
-.modal__footer {
+#calculation .modal__footer {
 	padding: 30px 20px 10px;
 	display: flex;
 	justify-content: space-between;
 }
 @media (min-width:1000px) {
-	.modal__footer  {
+	#calculation .modal__footer  {
 		padding: 50px 45px 0;
 	}
 }

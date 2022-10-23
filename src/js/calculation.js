@@ -38,13 +38,20 @@ function popupOpen(curentPopup) {
 			bodyLock();
 		}
 		curentPopup.classList.add('open');
-		checked();
-		changeModalBody();
+
 		curentPopup.addEventListener('click', function (e) {
 			if (!e.target.closest('.modal__content')) {
 				popupClose(e.target.closest('.modal'));
 			}
 		})
+
+		if (curentPopup.id = 'calculation') {
+			checked();
+			changeModalBody();
+		}
+
+		
+		
 	};
 }
 function popupClose(popupActive, doUnlock = true) {
@@ -113,18 +120,11 @@ document.addEventListener('keydown', function (e) {
 			Element.prototype.msMatchesSelector;
 	}
 })();
-function checked() {
-	let calculatorRadio = document.querySelectorAll('.options__input[name="typeObject"]');
 
-	calculatorRadio.forEach((el) => {
-		el.addEventListener('change', () => {
-			calculatorRadio.forEach((item) => {
-				item.nextElementSibling.classList.remove('checked');
-			})
-			el.nextElementSibling.classList.add('checked');
-		})
-	})
-}
+
+
+
+
 
 
 
@@ -221,6 +221,21 @@ function changeModalBody() {
 
 
 /* validate calculation form */
+
+function checked() {
+	let calculatorRadio = document.querySelectorAll('.options__input[name="typeObject"]');
+
+	calculatorRadio.forEach((el) => {
+		el.addEventListener('change', () => {
+			calculatorRadio.forEach((item) => {
+				item.nextElementSibling.classList.remove('checked');
+			})
+			el.nextElementSibling.classList.add('checked');
+		})
+	})
+}
+
+
 function validateCalculatorForm() {
 
 	const form = document.getElementById('formCalculator');

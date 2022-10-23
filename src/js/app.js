@@ -1,4 +1,4 @@
-/* Swiper */
+/* Swiper  on index.html*/
 const swiper = new Swiper('.swiper', {
 	loop: true,
 	// If we need pagination
@@ -19,6 +19,25 @@ const swiper = new Swiper('.swiper', {
 	slideToClickedSlide: false,
 	allowTouchMove: false,
 });
+
+/* Swiper  on catalog.html*/
+const productPage = new Swiper('.product__images', {
+	// loop: true,
+
+	// Navigation arrows
+	navigation: {
+		nextEl: '.swiper-button-next',
+		prevEl: '.swiper-button-prev',
+	},
+	speed: 400,
+	effect: "fade",
+	fadeEffect: {
+		crossFade: true,
+	},
+	slideToClickedSlide: false,
+	allowTouchMove: false,
+});
+
 
 /* Typed */
 let options = { strings: ["", "когда прогулка в парке действительно в радость", "пожалуй, лучшие детские игровые проcтранства", "когда игры для детей в саду действительно увлекательны"], typeSpeed: 60, backSpeed: 40, loop: !0, backDelay: 800 },

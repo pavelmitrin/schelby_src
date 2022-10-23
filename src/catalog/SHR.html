@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('../html/catalog/catalog_head.html', {
+"title": "Example",
+"style": "products"
+})
+
+<body>
+	<div class="wrapper">
+		@@include('../html/catalog/catalog_header.html', {})
+		<main class="main">
+			<section class="preview">
+				<div class="container">
+					<h2 class="preview__title">Каталог оборудования для детских игровых и спортивных площадок</h2>
+				</div>
+				<div class="preview__bg"><img src="@img/1.webp" alt=""></div>
+			</section>
+
+			@@include('../html/catalog/catalog_breadcumps.html', {
+			"name": "Example"
+			})
+
+			<section class="products">
+				<div class="container">
+					<div class="produsts__text">
+						<h2 class="products__title">Большие канатные комплексы «Шелби Ривер»</h2>
+						<h3 class="products__subtitle">
+							<p>Серия «Шелби Ривер» – идеальное решение для больших игровых пространств в парках, скверах, на придомовых территориях. В моделях этой серии плоская или объемная канатная сетка с множеством игровых элементов занимает центральное место на игровой площадке.</p>
+							<p>С помощью канатных комплексов «Шелби Ривер» можно разнообразить занятия спортом, сделать игру увлекательной и интересной, помочь детям проявить фантазию.</p>
+						</h3>
+					</div>
+					<div class="products__prompt">
+						<p>Под заказ мы можем изготовить комплектующие для детских игровых комплексов в любых цветах. Предложим различные цветовые решения для реализации идей ваших детских площадок. И да, что немаловажно, в отличие от конкурентов, мы подберем любой цвет для детского игрового оборудования в зависимости от ваших пожеланий абсолютно бесплатно!</p>
+					</div>
+					<div class="products__items">
+
+						<div class="products__item">
+							<a href="#product" class="product popup-link">
+								<div class="product__img">
+									<img src="../img/catalog/SHR/SHR0001/1.jpg" alt="">
+								</div>
+								<div class="product__text">
+									<h4 class="product_title">Name</h4>
+									<p class="product__article">article</p>
+								</div>
+								<button type="button">Подробнее</button>
+							</a>
+							<a href="#" target="_blank" class="products__item-dwg">Скачать DWG</a>
+						</div>
+
+						<div class="products__item">
+							<a href="#product" class="product popup-link">
+								<div class="product__img">
+									<img src="../img/catalog/SHR/SHR0001/2.jpg" alt="">
+								</div>
+								<div class="product__text">
+									<h4 class="product_title">Name</h4>
+									<p class="product__article">article</p>
+								</div>
+								<button type="button">Подробнее</button>
+							</a>
+							<a href="#" target="_blank" class="products__item-dwg">Скачать DWG</a>
+						</div>
+
+						<div class="products__item">
+							<a href="#product" class="product popup-link">
+								<div class="product__img">
+									<img src="../img/catalog/SHR/SHR0001/3.jpg" alt="">
+								</div>
+								<div class="product__text">
+									<h4 class="product_title">Name</h4>
+									<p class="product__article">article</p>
+								</div>
+								<button type="button">Подробнее</button>
+							</a>
+							<a href="#" target="_blank" class="products__item-dwg">Скачать DWG</a>
+						</div>
+
+						<div class="products__item">
+							<a href="#product" class="product popup-link">
+								<div class="product__img">
+									<img src="../img/catalog/SHR/SHR0001/4.jpg" alt="">
+								</div>
+								<div class="product__text">
+									<h4 class="product_title">Name</h4>
+									<p class="product__article">article</p>
+								</div>
+								<button type="button">Подробнее</button>
+							</a>
+							<a href="#" target="_blank" class="products__item-dwg">Скачать DWG</a>
+						</div>
+
+
+					</div>
+				</div>
+			</section>
+
+			<!-- <section class="catalog">
+				<div class="container">
+					<div class="catalog__text">
+						<h2 class="catalog__title">Детское игровое оборудование</h2>
+						<h3 class="catalog__subtitle">В обновленном каталоге — канатные игровые комплексы, уличное
+							оборудование для занятия спортом, тематические площадки, канатные конструкции для больших площадок,
+							игровые комплексы для самых маленьких, эко-линейки игрового оборудования, и многое другое.</h3>
+					</div>
+					<div class="catalog__items">
+
+						<a href="#" class="catalog__item item">
+							<div class="item__img">
+								<img src="../@img/catalog/SHR/cover.jpg" alt="">
+							</div>
+							<div class="item__text">
+								<h4 class="item__title">Шелби Ривер (SHR)</h4>
+								<p class="item__description">Канатные игровые комплексы</p>
+							</div>
+						</a>
+						<a href="#" class="catalog__item item">
+							<div class="item__img">
+								<img src="../@img/catalog/SHR/cover.jpg" alt="">
+							</div>
+							<div class="item__text">
+								<h4 class="item__title">Шелби Ривер (SHR)</h4>
+								<p class="item__description">Канатные игровые комплексы</p>
+							</div>
+						</a>
+						<a href="#" class="catalog__item item">
+							<div class="item__img">
+								<img src="../@img/catalog/SHR/cover.jpg" alt="">
+							</div>
+							<div class="item__text">
+								<h4 class="item__title">Шелби Ривер (SHR)</h4>
+								<p class="item__description">Канатные игровые комплексы</p>
+							</div>
+						</a>
+						<a href="#" class="catalog__item item">
+							<div class="item__img">
+								<img src="../@img/catalog/SHR/cover.jpg" alt="">
+							</div>
+							<div class="item__text">
+								<h4 class="item__title">Шелби Ривер (SHR)</h4>
+								<p class="item__description">Канатные игровые комплексы</p>
+							</div>
+						</a>
+
+						<a href="#" class="catalog__item item">
+							<div class="item__img">
+								<img src="" alt="">
+							</div>
+							<div class="item__text">
+								<h4 class="item__title"></h4>
+								<p class="item__description"></p>
+							</div>
+						</a>
+						
+
+					</div>
+				</div>
+			</section> -->
+
+			@@include('../html/catalog/catalog_repeat.html', {})
+		</main>
+		@@include('../html/catalog/catalog_footer.html', {})
+		@@include('../html/catalog/catalog_calculation.html', {})
+		@@include('../html/catalog/catalog_product.html', {})
+	</div>
+	@@include('../html/catalog/catalog_scripts.html', {})
+
+</body>
+
+</html>
