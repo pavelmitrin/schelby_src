@@ -44,14 +44,15 @@ catalog.forEach(el => {
 
 	productsPath.push(el.substring(from, to)); 	
 	
-	
 });
+
 
 passing.forEach(element => {
 	if (!categoriesName.includes(element[0]) && !categoriesName.includes('/')) {
 		categoriesName.push(element[0]);
 	}
 })
+
 
 passing = [];
 
@@ -61,7 +62,7 @@ categoriesName.forEach((item, index)=> {
 	categoriesName[index] = item;
 	allProducts[`${item}`] = [];
 
-			
+
 	productsPath.forEach(el => {
 		// console.log(item);
 		let it = item.replace(/\(/, '\\(');
@@ -70,14 +71,14 @@ categoriesName.forEach((item, index)=> {
 		
 
 		let from = 'fff';		//	new RegExp('\\/' + it + '\\/');
-		let to = /\/[A-Z].+?\d{4}.+?/g;		
+		let to = /\/[A-Z]+\d{4}.+?/g;		
 		// let to = new RegExp('\\/' + it + '\\/[a-zA-Z0-9].+?\\/')
 
 		
 		let pppp = el.match(to);
 		if (pppp != null) {
 			console.log(pppp);
-			
+
 		}
 
 		
@@ -97,7 +98,7 @@ categoriesName.forEach((item, index)=> {
 
 })
 
-console.log(allProducts);
+console.log(categoriesName);
 
 
 
@@ -117,7 +118,7 @@ function contains(arr, elem) {
 // });
 
 function categotyName(el) {
-	return el.match(/\/[а-я].+?\//ig);    		// Если будут полные названия категорий на русском в папке 
+	return el.match(/\/[A-Z]+?\//g);    		// Если будут полные названия категорий на русском в папке 
 }
 
 

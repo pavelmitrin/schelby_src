@@ -30,7 +30,7 @@
 			<div class="product__descriptions desc">
 				<h4 class="desc__title"> Игровой канатный комплекс</h4>
 				<h5 class="desc__article"> Арт. SHR0001</h5>
-				<a href="#" class="desc__price">Запрос цены</a>
+				<a href="#buy" class="desc__price popup-link">Запрос цены</a>
 				<div class="desc__text">
 					<div class="desc__options">
 						<ul>
@@ -44,6 +44,71 @@
 						<p>Канатная конструкция «Шелби Ривер» для детских площадок. Габариты — 11 460x11 325x2 770 мм. Изготавливается из армированного 6-прядного каната диаметром 16 мм. Конструкция имеет различные игровые элементы: канатный переход в форме трубы, полосу препятствия с круглыми резиновыми сидениями, которые используются как ногоступы, а также канатную сетку для лазания в форме воронки.</p>
 						<p>Конструкция изготовлена из следующих материалов: металлическая рама из электросварных труб диаметрами 219х6 и 133х4,5 мм; канат армированный 6-прядный диаметром 16 мм из полипропиленовых нитей и стальной проволоки. Х-образные и Т-образные соединения каната цельнолитые, выполнены из полиамида (PA6), обжимные гильзы из алюминиевого сплава. Подвесные сиденья выполнены из термоэластопласта, армированного алюминиевой закладной. Металлическая рама конструкции оцинкованная, с порошковым покрытием.</p>
 					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+<div id="buy" class="modal open">
+	<div class="modal__dialog">
+		<div class="modal__head">
+			<a href="#" class="modal__close close-modal">
+				<span></span>
+			</a>
+		</div>
+		<div class="modal__content">
+			<div class="shopping__cart cart">
+				<h3 class="cart__title">Ваш заказ</h3>
+
+				<div class="cart__products">
+					<div class="cart__product">
+						<div class="cart__preview">
+							<img src="../@img/catalog/SHR/SHR0001/1.jpg" alt="">
+						</div>
+						<div class="cart__inform">
+							<div class="cart__data">
+								<h4 class="cart__name">Игровой канатный комплекс</h4>
+								<h4 class="cart__article">Арт. SHR0001</h4>
+							</div>
+
+							<div class="cart__amount">
+								<button id="amountPlus"><img src="../@img/catalog/arrows_circle_plus.svg" alt=""></button>
+								<p class="amount__Score">1</p>
+								<button id="amountMinus"><img src="../@img/catalog/arrows_circle_minus.svg" alt=""></button>
+							</div>
+
+							<button class="cart__remove"><img src="../@img/catalog/arrows_circle_remove.svg" alt=""></button>
+							
+						</div>
+					</div>
+				</div>
+
+				<div class="cart__form">
+					<form action="#" id="buyForm" class="form-buy">
+						<div class="form-buy__item">
+							<label for="buyFormName">Ваше имя</label>
+							<input id="buyFormName" type="text" placeholder="Иван Смирнов">
+						</div>
+						<div class="form-buy__item">
+							<label for="buyFormEmail">Почта</label>
+							<input id="buyFormEmail" type="email" placeholder="hello@shelby.com">
+						</div>
+						<div class="form-buy__item">
+							<label for="buyFormTel">Телефон</label>
+							<input id="buyFormTel" type="tel" placeholder="+7 000 000 00 00">
+						</div>
+						<div class="form-buy__item">
+							<label for="buyFormOrgan">Название организации</label>
+							<input id="buyFormOrgan" type="text" placeholder="ООО Шелби Плэйс">
+						</div>
+
+						<button type="submit" id="buyFormSubmit">Заказать</button>
+					</form>
 				</div>
 			</div>
 		</div>

@@ -96,7 +96,7 @@ export const catalog = () => {
 						]
 					},
 					'output': {
-						'file': 'gulp/version.json'
+						'file': 'gulp/version2.json'
 					}
 				})
 			)
