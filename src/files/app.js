@@ -98,7 +98,7 @@ categoriesName.forEach((item, index)=> {
 
 })
 
-console.log(categoriesName);
+// console.log(categoriesName);
 
 
 
