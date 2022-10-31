@@ -40,8 +40,11 @@ const productPage = new Swiper('.product__images', {
 
 
 /* Typed */
-let options = { strings: ["", "когда прогулка в парке действительно в радость", "пожалуй, лучшие детские игровые проcтранства", "когда игры для детей в саду действительно увлекательны"], typeSpeed: 60, backSpeed: 40, loop: !0, backDelay: 800 },
+if (document.querySelector('.element') != null) {
+	let options = { strings: ["", "когда прогулка в парке действительно в радость", "пожалуй, лучшие детские игровые проcтранства", "когда игры для детей в саду действительно увлекательны"], typeSpeed: 60, backSpeed: 40, loop: !0, backDelay: 800 },
 	typed = new Typed(".element", options);
+};
+
 
 /* Input range */
 function range(item) {
@@ -76,7 +79,26 @@ $.fn.setCursorPosition = function (pos) {
 	}
 };
 
+/* validation */
+
 $("#formTel").click(function () {
 	$(this).setCursorPosition(3);
 }).mask("+7 999 999 99 99");
 $("#formTel").mask("+7 999 999 99 99");
+
+$("#connectionCallTel").click(function () {
+	$(this).setCursorPosition(3);
+}).mask("+7 999 999 99 99");
+$("#formTel").mask("+7 999 999 99 99");
+
+
+
+/* open buttons */
+
+let butoonOpen = document.querySelectorAll('.btn-open');
+
+butoonOpen.forEach(el => {
+	el.addEventListener('click', () =>  {
+		el.previousElementSibling.classList.toggle('hidden');
+	})
+})

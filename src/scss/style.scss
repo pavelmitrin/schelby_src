@@ -27,6 +27,7 @@ body._lock {
 	overflow: hidden;
 	display: flex;
 	flex-direction: column;
+	/* position: relative; */
 }
 //* </ОБОЛОЧКА>=====================================================================================================================
 
@@ -37,3 +38,4 @@ body._lock {
 @import "layout/main";
 @import "layout/footer";
 @import "components/calculation";
+@import "components/buttons.scss";
