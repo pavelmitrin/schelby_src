@@ -88,7 +88,21 @@ categoryName.forEach(el => {
 	})
 })
 
-console.log(done);
-// console.log(PathFromStart);
-// console.log(done.SHR[5].pictures);
+
+
+
+// console.log(done);
+
+
+// let data = JSON.stringify(catalog);
+fs.writeFile('./catalog.json', JSON.stringify(done), function (err) {
+	if (err) return console.log(err);
+});
+
+for (const key in done) {
+	fs.open(`../catalog/${key}.html`, 'w', (err) => {
+	if(err) throw err;
+	console.log('File created');
+	});
+}
 

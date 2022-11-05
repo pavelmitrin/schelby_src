@@ -102,3 +102,19 @@ butoonOpen.forEach(el => {
 		el.previousElementSibling.classList.toggle('hidden');
 	})
 })
+
+
+
+async function f() {
+	let DB = await(await fetch('../files/catalog.json')).json();
+
+	console.log(DB);
+	
+	const catalog = document.getElementById('headerCatalog');
+	catalog.innerHTML+= `
+	<a href="#" class="header__second-link">Привет</a>
+	`
+
+};
+
+f();
