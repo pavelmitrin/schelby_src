@@ -1,0 +1,2 @@
+categoryName: Шелби Скат,
+categorySubtitle: Канатные игровые комплексы

@@ -1,2 +1,2 @@
-categoryName: Шелби Ривер,
+categoryName: Шелби Инди,
 categorySubtitle: Канатные игровые комплексы

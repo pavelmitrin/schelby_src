@@ -1,2 +1,2 @@
-categoryName: Шелби Ривер,
+categoryName: Шелби Луп,
 categorySubtitle: Канатные игровые комплексы
