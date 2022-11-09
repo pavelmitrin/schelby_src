@@ -38,7 +38,9 @@ let done = {};
 function CategoryOptions(name, subtitle, pictute) {
 	this.categoryName = '',
 	this.categorySubtitle = '',
-	this.categoryPictute = ''
+	this.categoryPictute = '',
+	this.categoryPageTitle = '',
+	this.categoryPageInfo = []
 }
 function FullProduct(article) {
 	this.name = '';
@@ -46,6 +48,7 @@ function FullProduct(article) {
 	this.pictures = [];
 	this.options = [];
 	this.description = [];
+	this.status = false;
 }
 
 
@@ -131,6 +134,8 @@ categoryName.forEach(el => {
 						category.description.push(ele); 
 					})
 				}
+
+				let namePage
 				
 			}
 		})
@@ -143,13 +148,41 @@ categoryName.forEach(el => {
 		if (elem.search(el) !== -1) {
 			let categInfo = fs.readFileSync(`${elem}`, 'utf8',);
 			let name = categInfo.match(/.+,/g);
-			name = name[0].replace(/categoryName: /, '');
-			name = name.replace(/,/g, '');
-			done[`${el}`][0].categoryName = name;
+			if (name != null) {
+				name = name[0].replace(/categoryName: /, '');
+				name = name.replace(/,/g, '');
+				done[`${el}`][0].categoryName = name;
+			}
+			
 
 			let subtitle = categInfo.match(/^categorySubtitle:.+/gm);
-			subtitle = subtitle[0].replace(/categorySubtitle:/, '')
-			done[`${el}`][0].categorySubtitle = subtitle;
+			if (subtitle != null) {
+				subtitle = subtitle[0].replace(/categorySubtitle:/, '');
+				done[`${el}`][0].categorySubtitle = subtitle;
+			}
+			
+			
+			let pageTitle = categInfo.match(/^categoryPageTitle:.+/gm)
+			if (pageTitle !== null) {
+				pageTitle = pageTitle[0].replace(/categoryPageTitle:/, '');
+				pageTitle = pageTitle.replace(/,/, '');
+				done[`${el}`][0].categoryPageTitle = pageTitle;
+			}
+			
+
+
+			let pageInfo = categInfo.match(/^categoryPageInfo: \[.+\]/gm);
+			if (pageInfo != null) {
+				pageInfo = pageInfo[0].replace(/categoryPageInfo: \[/, '');
+				pageInfo = pageInfo.replace(']', '');
+				pageInfo = pageInfo.match(/'.+?'/gm);
+				pageInfo.forEach(ele => {
+						ele = ele.replace(/'/g, ''),
+						done[`${el}`][0].categoryPageInfo.push(ele);
+					})
+			}
+
+			
 			
 		}
 	})
@@ -162,6 +195,16 @@ categoryName.forEach(el => {
 });
 
 // create Pages
+function catalogPageSubtitle(key, done) {
+	function createEl(el) {
+		return `<p>${el}</p>`
+	}
+	let list = ``;
+	done[`${key}`][0].categoryPageInfo.forEach(el => {
+		list += createEl(el);
+	})
+	return list;
+}
 function catalogItem(key, done) {
 	let ae = ``;
 	for (let index = 1; index < done[`${key}`].length; index++) {
@@ -224,7 +267,7 @@ function catalogCategory (key, done) {
 						</div>
 						<div class="header__item">
 							<h3 class="header__link">Каталог</h3>
-							<div class="header__second-list">
+							<div class="header__second-list" id="headerCatalog">
 								<a href="../catalog.html" class="header__second-link">ВЕСЬ КАТАЛОГ</a>
 								<a href="#" class="header__second-link">ГОТОВЫЕ РЕШЕНИЯ</a>
 								<a href="#" class="header__second-link">ОБОРУДОВАНИЕ В НАЛИЧИИ</a>
@@ -287,7 +330,7 @@ function catalogCategory (key, done) {
 						<ol class="breadcrumb">
 							<li class="breadcrumb-item"><a href="../index.html">Главная</a></li>
 							<li class="breadcrumb-item"><a href="../catalog.html">Каталог</a></li>
-							<li class="breadcrumb-item active" aria-current="page">Example</li>
+							<li class="breadcrumb-item active" aria-current="page">${done[key][0].categoryName}</li>
 						</ol>
 					</nav>
 				</div>
@@ -298,10 +341,9 @@ function catalogCategory (key, done) {
 				<section class="products">
 					<div class="container">
 						<div class="produsts__text">
-							<h2 class="products__title">Большие канатные комплексы «Шелби Ривер»</h2>
+							<h2 class="products__title">${done[key][0].categoryPageTitle}</h2>
 							<h3 class="products__subtitle">
-								<p>Серия «Шелби Ривер» – идеальное решение для больших игровых пространств в парках, скверах, на придомовых территориях. В моделях этой серии плоская или объемная канатная сетка с множеством игровых элементов занимает центральное место на игровой площадке.</p>
-								<p>С помощью канатных комплексов «Шелби Ривер» можно разнообразить занятия спортом, сделать игру увлекательной и интересной, помочь детям проявить фантазию.</p>
+								${catalogPageSubtitle(key, done)}
 							</h3>
 						</div>
 						<div class="products__prompt">
@@ -461,29 +503,9 @@ function catalogCategory (key, done) {
 						<a href="#" class="footer-links__link">Контакты</a>
 						<a href="#" class="footer-links__link">Карта сайта</a>
 					</div>
-					<div class="col-12 col-sm-6 col-lg-3 footer-links__row">
+					<div class="col-12 col-sm-6 col-lg-3 footer-links__row" id="footerCatalog">
 						<h4 class="footer-links__title">Оборудование</h4>
 						<a href="#" class="footer-links__link footer-links__link-active">Оборудование в наличии</a>
-						<a href="#" class="footer-links__link">Ривер</a>
-						<a href="#" class="footer-links__link">Плэй</a>
-						<a href="#" class="footer-links__link">Атом</a>
-						<a href="#" class="footer-links__link">Скат</a>
-						<a href="#" class="footer-links__link">НЛО</a>
-						<a href="#" class="footer-links__link">Модуль</a>
-						<a href="#" class="footer-links__link">Кубикс</a>
-						<a href="#" class="footer-links__link">Глобус</a>
-						<a href="#" class="footer-links__link">Пирамиды</a>
-						<a href="#" class="footer-links__link">Динамикс</a>
-						<a href="#" class="footer-links__link">Легно (Робиния)</a>
-						<a href="#" class="footer-links__link">Лаго</a>
-						<a href="#" class="footer-links__link">Инди</a>
-						<a href="#" class="footer-links__link">Эни</a>
-						<a href="#" class="footer-links__link">Луп</a>
-						<a href="#" class="footer-links__link">Апекс</a>
-						<a href="#" class="footer-links__link">Форс</a>
-						<a href="#" class="footer-links__link">Монстерс</a>
-						<a href="#" class="footer-links__link">Вотер Вэйс</a>
-						<a href="#" class="footer-links__link">Арки</a>
 					</div>
 					<div class="col-12 col-sm-6 col-lg-3 footer-links__row">
 						<h4 class="footer-links__title">Доп. оборудование и материалы</h4>
@@ -818,8 +840,7 @@ function catalogCategory (key, done) {
 	
 	</html>`
 };
-// /create Pages
-// console.log(done);
+
 
 fs.writeFile('./catalog.json', JSON.stringify(done), function (err) {
 	if (err) return console.log(err);

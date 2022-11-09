@@ -109,23 +109,38 @@ async function f() {
 	
 	console.log(DB);
 
-	function catalogLink(link, name) {
+	function catalogHeaderLink(link, name) {
 		return `<a href="${link}.html" class="header__second-link">${name}</a>`
 	}
-
-	const catalog = document.getElementById('headerCatalog');
+	function catalogFooterLink(link, name) {
+		return `<a href="${link}.html" class="footer-links__link">${name}</a>`
+	}
+	function catalogPage(link, image, title, subtitle) {
+		return `
+		<a href="catalog/${link}.html" class="catalog__item item">
+		<div class="item__img">
+			<img src="${image}" alt="">
+		</div>
+		<div class="item__text">
+			<h4 class="item__title">${title} (${link})</h4>
+			<p class="item__description">${subtitle}</p>
+		</div>
+		</a>
+		`
+	}
+	const headercatalog = document.getElementById('headerCatalog');
+	const footerCatalog = document.getElementById('footerCatalog');
 	for (const key in DB) {
-		catalog.innerHTML += catalogLink(key, DB[`${key}`][0].categoryName);
+		headercatalog.innerHTML += catalogHeaderLink(`/catalog/${key}`, DB[`${key}`][0].categoryName);		
+		footerCatalog.innerHTML += catalogFooterLink(`/catalog/${key}`, DB[`${key}`][0].categoryName);
+	
+		// catalog
+		if (document.getElementById('catalogItem') !== null) {
+			catalog = document.getElementById('catalogItem');
+			catalog.innerHTML += catalogPage(key, DB[`${key}`][0].categoryPictute, DB[`${key}`][0].categoryName, DB[`${key}`][0].categorySubtitle);
+		}
 	}
 	
-
-
-	// catalog
-
-// if (document.getElementById('catalogItem') !== null) {
-// 	catalog = document.getElementById('catalogItem');
-
-// }
 
 };
 
