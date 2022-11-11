@@ -98,7 +98,7 @@
 	overflow: hidden;
 	position: relative;
 	
-
+	z-index: 9999;
 	box-shadow: 0 0 12px #000;
 }
 @media (min-width:567px) {
@@ -198,14 +198,16 @@
 	font-size: 16px;
 	line-height: 16px;
 	margin: 0 10px;
+	max-width: 15px;
+	text-align: center;
 }
-#amountPlus, #amountMinus, .cart__remove  {
+button.amountPlus, button.amountMinus, .cart__remove  {
 	width: 16px;
 	height: 16px;
 	background-color: transparent;
 }
 
-#amountPlus img, #amountMinus img, .cart__remove img {
+button.amountPlus img, button.amountMinus img, .cart__remove img {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;

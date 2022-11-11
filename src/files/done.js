@@ -96,7 +96,7 @@ categoryName.forEach(el => {
 			}
 
 			if (e.search(category.article) != -1) {
-				if (/.?info.txt/.test(e) !== true && category.article != undefined) {
+				if (/.?info.txt/.test(e) !== true && category.article != undefined && e.search(/.+\.webp/) != -1) {
 					category.pictures.push(e);
 				}
 				
@@ -187,7 +187,7 @@ categoryName.forEach(el => {
 		}
 	})
 	PathFromStart.forEach(elem => {
-		let reg = new RegExp(`\.\?${el}\/cover\.jpg`); // надо будет заменить на webp
+		let reg = new RegExp(`\.\?${el}\/cover\.webp`); // надо будет заменить на webp
 		if (reg.test(elem) === true) {
 			done[`${el}`][0].categoryPictute = elem;
 		};
@@ -211,7 +211,7 @@ function catalogItem(key, done) {
 		ae += `<div class="products__item">
 				<a href="#product" class="product popup-link">
 				<div class="product__img">
-					<img src="../img/catalog/${key}/${done[`${key}`][index].article}/1.jpg" alt="">
+					<img src="../img/catalog/${key}/${done[`${key}`][index].article}/1.webp" alt="">
 				</div>
 				<div class="product__text">
 					<h4 class="product_title">${done[`${key}`][index].name}</h4>
@@ -254,7 +254,7 @@ function catalogCategory (key, done) {
 				</div>
 				<nav class="header__menu">
 					<div class="header__logo">
-						<a href="../index.html" class="header__link"><img src="../img/logo.png" alt=""></a>
+						<a href="../index.html" class="header__link"><img src="../img/logo.webp" alt=""></a>
 					</div>
 					<div class="header__list">
 						<div class="header__item">
@@ -442,7 +442,7 @@ function catalogCategory (key, done) {
 	</section>
 	
 	<section class="feedback">
-		<img src="../img/1.jpg" alt="" class="section__bg">
+		<img src="../img/1.webp" alt="" class="section__bg">
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
@@ -719,18 +719,7 @@ function catalogCategory (key, done) {
 				<div class="product__images">
 					<div class="swiper-wrapper">
 						<!-- Slides -->
-						<div class="swiper-slide" style="width:100%; height:100%;">
-							<img src="../img/catalog/SHR/SHR0001/1.jpg" alt="">
-						</div>
-						<div class="swiper-slide" style="width:100%; height:100%;">
-							<img src="../img/catalog/SHR/SHR0001/2.jpg" alt="">
-						</div>
-						<div class="swiper-slide" style="width:100%; height:100%;">
-							<img src="../img/catalog/SHR/SHR0001/3.jpg" alt="">
-						</div>
-						<div class="swiper-slide" style="width:100%; height:100%;">
-							<img src="../img/catalog/SHR/SHR0001/4.jpg" alt="">
-						</div>
+						
 					</div>
 					<!-- If we need navigation buttons -->
 					<div class="swiper-button-prev"></div>
@@ -776,26 +765,7 @@ function catalogCategory (key, done) {
 					<h3 class="cart__title">Ваш заказ</h3>
 	
 					<div class="cart__products">
-						<div class="cart__product">
-							<div class="cart__preview">
-								<img src="../img/catalog/SHR/SHR0001/1.jpg" alt="">
-							</div>
-							<div class="cart__inform">
-								<div class="cart__data">
-									<h4 class="cart__name">Игровой канатный комплекс</h4>
-									<h4 class="cart__article">Арт. SHR0001</h4>
-								</div>
-	
-								<div class="cart__amount">
-									<button id="amountPlus"><img src="../img/catalog/arrows_circle_plus.svg" alt=""></button>
-									<p class="amount__Score">1</p>
-									<button id="amountMinus"><img src="../img/catalog/arrows_circle_minus.svg" alt=""></button>
-								</div>
-	
-								<button class="cart__remove"><img src="../img/catalog/arrows_circle_remove.svg" alt=""></button>
-								
-							</div>
-						</div>
+						
 					</div>
 	
 					<div class="cart__form">

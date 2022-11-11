@@ -50,9 +50,10 @@ function popupOpen(curentPopup) {
 		curentPopup.classList.add('open');
 
 		curentPopup.addEventListener('click', function (e) {
-			if (!e.target.closest('.modal__content')) {
-				popupClose(e.target.closest('.modal'));
-			}
+			// console.log(e.target);
+			// if (!e.target.closest('.modal__content')) {
+			// 	popupClose(e.target.closest('.modal'));
+			// }
 		})
 
 		if (curentPopup.id == 'calculation') {

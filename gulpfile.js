@@ -15,7 +15,7 @@ global.app = {
 }
 
 // Импорт задач
-import { copy } from "./gulp/tasks/copy.js";
+import { copy, copyImgFile } from "./gulp/tasks/copy.js";
 import { reset } from "./gulp/tasks/reset.js";
 import { html } from "./gulp/tasks/html.js";
 import { catalog } from "./gulp/tasks/html.js";
@@ -33,6 +33,7 @@ function watcher() {
 	gulp.watch(path.watch.files, copy); //gulp.watch(path.watch.files, gulp.series(htm;, ftp))
 	gulp.watch(path.watch.html, html); //gulp.watch(path.watch.html, gulp.series(htm;, ftp))
 	gulp.watch(path.watch.catalog, catalog);
+	gulp.watch(path.watch.imgfiles, copyImgFile);
 	gulp.watch(path.watch.scss, scss); //gulp.watch(path.watch.scss, gulp.series(htm;, ftp))
 	gulp.watch(path.watch.js, js); //gulp.watch(path.watch.js, gulp.series(htm;, ftp))
 	gulp.watch(path.watch.images, images); //gulp.watch(path.watch.images, gulp.series(htm;, ftp))
@@ -44,7 +45,7 @@ export { svgSprive }
 const fonts = gulp.series(otfToTtf, ttfToWoff, fontsStyle);
 
 // Основные задачи
-const mainTasks = gulp.series(fonts, gulp.parallel(copy, html, catalog, scss_fonts, scss, scss_vendors, js, images));
+const mainTasks = gulp.series(fonts, gulp.parallel(copy, html, catalog, scss_fonts, scss, scss_vendors, js, images, copyImgFile));
 
 // Построение сценариев выполнения задач
 const dev = gulp.series(reset, mainTasks, gulp.parallel(watcher, server));
