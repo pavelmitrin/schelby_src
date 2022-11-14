@@ -266,29 +266,17 @@ function catalogCategory (key, done) {
 							<h3 class="header__link">Компания</h3>
 							<div class="header__second-list">
 								<a href="../company.html" class="header__second-link">О компании</a>
-								/* <a href="#" class="header__second-link">Новости</a>
-								<a href="#" class="header__second-link">Проекты</a> */
 							</div>
 						</div>
 						<div class="header__item">
 							<h3 class="header__link">Каталог</h3>
 							<div class="header__second-list" id="headerCatalog">
 								<a href="../catalog.html" class="header__second-link">ВЕСЬ КАТАЛОГ</a>
-								/* <a href="#" class="header__second-link">ГОТОВЫЕ РЕШЕНИЯ</a> */
 								<a href="../equipment.html" class="header__second-link">ОБОРУДОВАНИЕ В НАЛИЧИИ</a>
 								
 							</div>
 						</div>
-						/* <div class="header__item">
-							<h3 class="header__link">Дополнительное оборудование</h3>
-							<div class="header__second-list">
-								<a href="#" class="header__second-link">О компании</a>
-								<a href="#" class="header__second-link">О компании</a>
-								<a href="#" class="header__second-link">О компании</a>
-								<a href="#" class="header__second-link">О компании</a>
-								<a href="#" class="header__second-link">О компании</a>
-							</div>
-						</div> */
+						
 						<div class="header__item">
 							<a href="../partners.html">
 								<h3 class="header__link header__second-link">Для проектировщиков и госучреждений</h3>
@@ -512,25 +500,7 @@ function catalogCategory (key, done) {
 						<h4 class="footer-links__title">Оборудование</h4>
 						<a href="../equipment.html" class="footer-links__link footer-links__link-active">Оборудование в наличии</a>
 					</div>
-					/* <div class="col-12 col-sm-6 col-lg-3 footer-links__row">
-						<h4 class="footer-links__title">Доп. оборудование и материалы</h4>
-						<a href="#" class="footer-links__link">Качели</a>
-						<a href="#" class="footer-links__link">Карусели</a>
-						<a href="#" class="footer-links__link">Качалки на пружине</a>
-						<a href="#" class="footer-links__link">Качалки-балансиры</a>
-						<a href="#" class="footer-links__link">Додекаэдры</a>
-						<a href="#" class="footer-links__link">Воркаут</a>
-						<a href="#" class="footer-links__link">Резиновое покрытие</a>
-						<a href="#" class="footer-links__link">Тарзанки и монорельсы</a>
-						<a href="#" class="footer-links__link">Уличная мебель</a>
-						<a href="#" class="footer-links__link">Для партнёров</a>
-						<a href="#" class="footer-links__link">Готовые решения</a>
-						<a href="#" class="footer-links__link">Горки из нержавейки</a>
-						<a href="#" class="footer-links__link">Геопластика</a>
-						<a href="#" class="footer-links__link">Музыка и интерактив</a>
-						<a href="#" class="footer-links__link">Оптические иллюзии</a>
-						<a href="#" class="footer-links__link">Песочницы</a>
-					</div> */
+					
 					<div class="col-12 col-sm-6 col-lg-3 footer-links__row">
 						<h4 class="footer-links__title">Подписаться на рассылку</h4>
 						<form action="#" method="post" class="footer-links__sending sending">
@@ -713,7 +683,7 @@ function catalogCategory (key, done) {
 			</div>
 		</div>
 	</div>
-			<div id="product" class="modal">
+	<div id="product" class="modal">
 		<div class="modal__dialog">
 			<div class="modal__head">
 				<a href="#" class="modal__close close-modal">
@@ -795,6 +765,47 @@ function catalogCategory (key, done) {
 			</div>
 		</div>
 	</div>
+	<div class="connection">
+	<div class="connection__call">
+		<div class="connection__call-form hidden">
+			<form action="#" class="call__form" id="connectionCall">
+				<h3 class="call__form-title">Заполните форму или позвоните по номеру указанному ниже</h3>
+				<p class="call__form-subtitle">Наши менеджеры проконсультируют вас по любой из наших услуг.</p>
+				<div class="call__form-input">
+					<input type="tel" required id="connectionCallTel">
+					<button id="callFormSubmit">Заказать звонок</button>
+				</div>
+				<div class="call__form-link">
+					<a href="tel:+74993905007">+7 (499) 390-50-07</a>
+				</div>
+				<p class="call__form-agree">Нажимая на кнопку, вы даете согласие на обработку ваших персональных данных.</p>
+			</form>
+		</div>
+		<div class="connection__call-button btn-open">
+			<img src="../img/call.webp" alt="">
+		</div>
+	</div>
+	<div class="connection__chat">
+		<div class="connection__chat-connect chat hidden">
+			<a href="#" target="_blank" class="chat__mail">
+				<img src="../img/mail.svg" alt="">
+			</a>
+			<a href="#" target="_blank" class="chat__whatsapp">
+				<img src="../img/whatsapp.svg" alt="">
+			</a>
+			<a href="#" target="_blank" class="chat__telegram">
+				<img src="../img/telegramm.svg" alt="">
+			</a>
+		</div>
+		<div class="connection__chat-button btn-open">
+			<img src="../img/message.webp" alt="">
+		</div>
+	</div>
+</div>
+
+<div class="cart none" id="buyCart">
+	<a href="#buy" class="popup-link"><img src="../img/shoppingCart.svg" alt=""></a>
+</div>
 	
 			
 			

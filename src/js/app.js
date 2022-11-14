@@ -507,10 +507,9 @@ async function f() {
 	// Buy list
 	const buyButton = document.querySelector('.desc__price.popup-link');
 	const buyPage = document.getElementById('buy');
-	const cartProducts = document.querySelector('.cart__products');
+	let cartProducts = buyPage.querySelector('.cart__products');
 	let buyList = [];
 	const buyIcon = document.querySelector('#buyCart');
-
 
 
 	if (localStorage.getItem('buyList')) {
@@ -622,9 +621,9 @@ async function f() {
 				</div>
 			</div>
 		`;
-
-		cartProducts.insertAdjacentHTML('beforeend', cartProduct);
 		checkCart();
+		cartProducts.insertAdjacentHTML('beforeend', cartProduct);
+		
 	}
 	function changeCount(e) {
 		const tapProduct = e.target.closest('.cart__product');
