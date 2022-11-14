@@ -215,29 +215,47 @@
 }
 
 
-.cart {
+#buyCart.cart {
 	width: 50px;
 	height: 50px;
 	position: fixed;
 	z-index: 22;
-	top: 50%;
+	top: 10%;
 	right: 10px;
-	background-color: #000;
+	background-color: transparent;
 	overflow: hidden;
+	border-radius: 50%;
+	border: none;
 }
+
 @media (min-width:576px) {
-	.cart {
+	#buyCart.cart {
 		width: 60px;
 		height: 60px;
 		right: 20px;
 	}
 }
-.cart a {
-	width: 100%;
-	height: 100%;
+#buyCart.cart.none {
+	display: none;
 }
-.cart a img {
+#buyCart.cart a {
+	display: block;
+	z-index: 11;
+	opacity: 0.7;
 	max-width: 100%;
 	max-height: 100%;
+	width: 50px;
+	height: 50px;
+}
+@media (min-width:576px) {
+	#buyCart.cart a {
+		width: 60px;
+		height: 60px;
+	}
+}
+#buyCart.cart a img {
+	width: 100%;
+	height: 100%;
 	object-fit: cover;
+	pointer-events: none;
 }

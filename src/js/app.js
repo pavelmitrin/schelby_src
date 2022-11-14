@@ -509,17 +509,24 @@ async function f() {
 	const buyPage = document.getElementById('buy');
 	const cartProducts = document.querySelector('.cart__products');
 	let buyList = [];
+	const buyIcon = document.querySelector('#buyCart');
+
+
 
 	if (localStorage.getItem('buyList')) {
 		buyList = (JSON.parse(localStorage.getItem('buyList')));
 		buyList.forEach(product => renderBuyList(product));
+
 	}
+
 
 
 	buyButton.addEventListener('click', addBuyProduct)
 	cartProducts.addEventListener('click', removeBuyProduct)
 	cartProducts.addEventListener('click', changeCount)
 	
+	
+
 	function addBuyProduct() {
 		const article = buyButton.previousElementSibling.textContent.replace(/Арт. /, '');
 		let productDB;
@@ -570,6 +577,7 @@ async function f() {
 		// saveToLocalStorage();
 
 		// renderBuyList(newProduct);
+		checkCart();
 	}
 	function removeBuyProduct(e) {
 		if (e.target.classList.contains('cart__remove')) {
@@ -582,10 +590,12 @@ async function f() {
 			
 			productRemove.remove();
 		}
+		checkCart();
 	}
 	function saveToLocalStorage() {
 		buyList = buyList.filter((product) => product.count != 0)
 		localStorage.setItem('buyList', JSON.stringify(buyList));
+		checkCart();
 	}
 	function renderBuyList(product) {
 		const count = product.count;
@@ -614,6 +624,7 @@ async function f() {
 		`;
 
 		cartProducts.insertAdjacentHTML('beforeend', cartProduct);
+		checkCart();
 	}
 	function changeCount(e) {
 		const tapProduct = e.target.closest('.cart__product');
@@ -642,6 +653,15 @@ async function f() {
 			saveToLocalStorage();
 			cartProducts.innerHTML = '';
 			buyList.forEach(product => renderBuyList(product));
+		}
+		checkCart();
+	}
+
+	function checkCart() {
+		if (buyList.length !== 0) {
+			buyIcon.classList.remove('none');
+		} else {
+			buyIcon.classList.add('none');
 		}
 	}
 	
