@@ -48,7 +48,7 @@ function FullProduct(article) {
 	this.pictures = [];
 	this.options = [];
 	this.description = [];
-	this.status = false;
+	this.status = '';
 }
 
 
@@ -135,7 +135,13 @@ categoryName.forEach(el => {
 					})
 				}
 
-				let namePage
+				let statusPage = data.match(/^status: true|false/gm);
+				if (statusPage) {					
+					statusPage = statusPage[0].replace(/status: /, '');
+					category.status = statusPage;
+				}
+				
+				
 				
 			}
 		})
@@ -223,8 +229,7 @@ function catalogItem(key, done) {
 		</div>`;
 	}
 	return ae;
-	}
-
+}
 function catalogCategory (key, done) {
 	return `<!DOCTYPE html>
 	<html lang="ru">
@@ -261,20 +266,20 @@ function catalogCategory (key, done) {
 							<h3 class="header__link">Компания</h3>
 							<div class="header__second-list">
 								<a href="../company.html" class="header__second-link">О компании</a>
-								<a href="#" class="header__second-link">Новости</a>
-								<a href="#" class="header__second-link">Проекты</a>
+								/* <a href="#" class="header__second-link">Новости</a>
+								<a href="#" class="header__second-link">Проекты</a> */
 							</div>
 						</div>
 						<div class="header__item">
 							<h3 class="header__link">Каталог</h3>
 							<div class="header__second-list" id="headerCatalog">
 								<a href="../catalog.html" class="header__second-link">ВЕСЬ КАТАЛОГ</a>
-								<a href="#" class="header__second-link">ГОТОВЫЕ РЕШЕНИЯ</a>
-								<a href="#" class="header__second-link">ОБОРУДОВАНИЕ В НАЛИЧИИ</a>
+								/* <a href="#" class="header__second-link">ГОТОВЫЕ РЕШЕНИЯ</a> */
+								<a href="../equipment.html" class="header__second-link">ОБОРУДОВАНИЕ В НАЛИЧИИ</a>
 								
 							</div>
 						</div>
-						<div class="header__item">
+						/* <div class="header__item">
 							<h3 class="header__link">Дополнительное оборудование</h3>
 							<div class="header__second-list">
 								<a href="#" class="header__second-link">О компании</a>
@@ -283,7 +288,7 @@ function catalogCategory (key, done) {
 								<a href="#" class="header__second-link">О компании</a>
 								<a href="#" class="header__second-link">О компании</a>
 							</div>
-						</div>
+						</div> */
 						<div class="header__item">
 							<a href="../partners.html">
 								<h3 class="header__link header__second-link">Для проектировщиков и госучреждений</h3>
@@ -294,7 +299,7 @@ function catalogCategory (key, done) {
 							<div class="header__second-list">
 								<a href="../delivery.html" class="header__second-link">Доставка</a>
 								<a href="../mounting.html" class="header__second-link">Монтаж</a>
-								<a href="#" class="header__second-link">Материалы</a>
+								/* <a href="#" class="header__second-link">Материалы</a> */
 								<a href="../safety.html" class="header__second-link">Безопасность</a>
 							</div>
 						</div>
@@ -505,9 +510,9 @@ function catalogCategory (key, done) {
 					</div>
 					<div class="col-12 col-sm-6 col-lg-3 footer-links__row" id="footerCatalog">
 						<h4 class="footer-links__title">Оборудование</h4>
-						<a href="#" class="footer-links__link footer-links__link-active">Оборудование в наличии</a>
+						<a href="../equipment.html" class="footer-links__link footer-links__link-active">Оборудование в наличии</a>
 					</div>
-					<div class="col-12 col-sm-6 col-lg-3 footer-links__row">
+					/* <div class="col-12 col-sm-6 col-lg-3 footer-links__row">
 						<h4 class="footer-links__title">Доп. оборудование и материалы</h4>
 						<a href="#" class="footer-links__link">Качели</a>
 						<a href="#" class="footer-links__link">Карусели</a>
@@ -525,7 +530,7 @@ function catalogCategory (key, done) {
 						<a href="#" class="footer-links__link">Музыка и интерактив</a>
 						<a href="#" class="footer-links__link">Оптические иллюзии</a>
 						<a href="#" class="footer-links__link">Песочницы</a>
-					</div>
+					</div> */
 					<div class="col-12 col-sm-6 col-lg-3 footer-links__row">
 						<h4 class="footer-links__title">Подписаться на рассылку</h4>
 						<form action="#" method="post" class="footer-links__sending sending">
@@ -733,15 +738,11 @@ function catalogCategory (key, done) {
 					<div class="desc__text">
 						<div class="desc__options">
 							<ul>
-								<li>Габаритные размеры: 11 460x11 325x2 770 мм</li>
-								<li>Возрастная группа: с 5 до 14 лет</li>
-								<li>Высота максимального падения: 2 770 мм</li>
-								<li>Размер зоны приземления: для сыпучих материалов – 16 160x16 025 мм, для синтетического покрытия – 16 160x16 025 мм</li>
+								
 							</ul>
 						</div>
 						<div class="desc__descriptions">
-							<p>Канатная конструкция «Шелби Ривер» для детских площадок. Габариты — 11 460x11 325x2 770 мм. Изготавливается из армированного 6-прядного каната диаметром 16 мм. Конструкция имеет различные игровые элементы: канатный переход в форме трубы, полосу препятствия с круглыми резиновыми сидениями, которые используются как ногоступы, а также канатную сетку для лазания в форме воронки.</p>
-							<p>Конструкция изготовлена из следующих материалов: металлическая рама из электросварных труб диаметрами 219х6 и 133х4,5 мм; канат армированный 6-прядный диаметром 16 мм из полипропиленовых нитей и стальной проволоки. Х-образные и Т-образные соединения каната цельнолитые, выполнены из полиамида (PA6), обжимные гильзы из алюминиевого сплава. Подвесные сиденья выполнены из термоэластопласта, армированного алюминиевой закладной. Металлическая рама конструкции оцинкованная, с порошковым покрытием.</p>
+							
 						</div>
 					</div>
 				</div>
@@ -810,6 +811,7 @@ function catalogCategory (key, done) {
 	
 	</html>`
 };
+
 
 
 fs.writeFile('./catalog.json', JSON.stringify(done), function (err) {

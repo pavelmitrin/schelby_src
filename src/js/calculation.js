@@ -1,7 +1,6 @@
 const popupLinks = document.querySelectorAll('.popup-link');
 const body = document.querySelector('body');
 const lockPadding = document.querySelectorAll('.lock-padding');
-
 let unlock = true;
 
 const timeout = 800;
@@ -50,10 +49,11 @@ function popupOpen(curentPopup) {
 		curentPopup.classList.add('open');
 
 		curentPopup.addEventListener('click', function (e) {
-			// console.log(e.target);
-			// if (!e.target.closest('.modal__content')) {
-			// 	popupClose(e.target.closest('.modal'));
-			// }
+			// console.log(e);
+			// console.log(e.target.getAttribute('src'));
+			if (!e.target.closest('.modal__content') && e.target.getAttribute('src') !== '../img/catalog/arrows_circle_remove.svg') {	//
+				popupClose(e.target.closest('.modal'));
+			}
 		})
 
 		if (curentPopup.id == 'calculation') {
