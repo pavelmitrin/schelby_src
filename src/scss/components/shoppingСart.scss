@@ -91,7 +91,7 @@
 	background-color: #fff;
 	color: $black;
 	width: 100%;
-	padding: 15px 40px 40px;
+	padding: 15px 20px 40px;
 	transition: all 0.8s ease 0s;
 	opacity: 0;
 	transform: perspective(600px) translate(0px, -100%) rotateX(45deg);
@@ -104,11 +104,13 @@
 @media (min-width:567px) {
 	#buy .modal__content {
 		width: 85%;
+		padding: 15px 30px 40px;
 	}
 }
 @media (min-width:992px) {
 	#buy .modal__content {
 		width: 40%;
+		padding: 15px 40px 40px;
 	}
 }
 @media (min-width:1000px) {
@@ -217,7 +219,7 @@ button.amountPlus img, button.amountMinus img, .cart__remove img {
 .cart__remove {
 	margin-right: 5px;
 	position: absolute;
-	top: 10px;
+	top: 2px;
 	right: 0;
 }
 
