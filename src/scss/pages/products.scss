@@ -163,6 +163,7 @@ a.btn_2 {
 
 // product
 .product {
+	flex: 1 1 80%;
 	width: 100%;
 	min-height: 92px;
 	display: flex;
@@ -177,7 +178,7 @@ a.btn_2 {
 	object-position: center;
 }
 .product__text {
-	flex: 0 1 50%;
+	flex: 1 1 50%;
 	margin: 20px 0;
 }
 .product_title {

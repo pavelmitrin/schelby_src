@@ -218,10 +218,13 @@ async function f() {
 						function popupClose(popupActive, doUnlock = true) {
 							if (unlock) {
 								popupActive.classList.remove('open');
+								
 								if (doUnlock) {
 									bodyUnLock();
+									
 								}
 							}
+							checkCart();
 						}
 						function bodyLock() {
 							const lockPaddingValue = window.innerWidth - document.querySelector('.wrapper').offsetWidth + 'px';
@@ -668,7 +671,7 @@ async function f() {
 	}
 
 	function checkCart() {
-		if (buyList.length !== 0) {
+		if (buyList.length !== 0 && !buyPage.classList.contains('open')) {
 			buyIcon.classList.remove('none');
 		} else {
 			buyIcon.classList.add('none');
