@@ -169,6 +169,10 @@
 }
 .cart__data {
 	flex: 0 0 60%;
+	min-height: 65px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 .cart__name {
 	font-size: 14px;
